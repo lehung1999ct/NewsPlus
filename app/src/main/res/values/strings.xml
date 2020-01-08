@@ -14,4 +14,7 @@
     <string name="frag_three">THREE</string>
     <string name="frag_four">FOUR</string>
 
+    <!-- TODO: Service Facebook -->
+    <string name="facebook_app_id">2000488643605960</string>
+    <string name="fb_login_protocol_scheme">fb2000488643605960</string>
 </resources>
