@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">NewsApp</string>
+    <string name="app_name">News+</string>
 
-    <string name="title_hot_news">Hot News</string>
-    <string name="title_trending">Trending</string>
-    <string name="title_news">News</string>
-    <string name="title_profile">Profile</string>
+    <string name="title_hot_news">Tin Nóng</string>
+    <string name="title_trending">Xu Hướng</string>
+    <string name="title_news">Tin Tức</string>
+    <string name="title_profile">Người Dùng</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
