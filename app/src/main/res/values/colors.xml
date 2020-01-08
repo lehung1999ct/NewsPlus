@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#7b4bff</color>
+    <color name="colorPrimaryDark">#6539ba</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="bgBottomNavigation">#fe485a</color>
+
+    <!--    Transparent      -->
+    <color name="transparent0">#00000000</color>
+    <color name="transparent75">#3f000000</color>
+    <color name="transparent50">#7f000000</color>
+    <color name="transparent25">#bf000000</color>
+
+    <!--    Violet      -->
+    <color name="vio1">#B9B8FF</color>
+    <color name="vio2">#A09FFF</color>
+    <color name="vio3">#8685FF</color>
+    <color name="vio4">#6D6CFF</color>
+    <color name="vio5">#5352ED</color>
+    <color name="vio6">#3A39D4</color>
+    <color name="vio7">#201FBA</color>
+    <color name="vio8">#0706A1</color>
+    <color name="vio9">#000087</color>
+
+    <!--    Blue      -->
+    <color name="blu1">#D6FFFF</color>
+    <color name="blu2">#BDEEFF</color>
+    <color name="blu3">#A3D4FF</color>
+    <color name="blu4">#8ABBFF</color>
+    <color name="blu5">#70A1FF</color>
+    <color name="blu6">#5788E6</color>
+    <color name="blu7">#3D6ECC</color>
+    <color name="blu8">#2455B3</color>
+    <color name="blu9">#0A3B99</color>
+
+    <!--    White      -->
+    <color name="whi0">#FFFFFF</color>
 </resources>
