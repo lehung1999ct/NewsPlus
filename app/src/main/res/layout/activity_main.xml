@@ -16,10 +16,11 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_36sdp"
         android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
         app:itemBackground="@color/whi0"
-        app:menu="@menu/bottom_navigation" />
+        app:menu="@menu/bottom_navigation"
+        app:itemIconSize="@dimen/_16sdp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
