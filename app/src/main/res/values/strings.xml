@@ -17,4 +17,9 @@
     <!-- TODO: Service Facebook -->
     <string name="facebook_app_id">2000488643605960</string>
     <string name="fb_login_protocol_scheme">fb2000488643605960</string>
+
+    <string name="server_client_id">
+        574470202421-ofej0re81fngqb3aeb3mo8ddj26lrnc9.apps.googleusercontent.com
+    </string>
+
 </resources>

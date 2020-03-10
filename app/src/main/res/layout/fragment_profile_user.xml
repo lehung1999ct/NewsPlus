@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.FragmentProfileUser"
     android:orientation="vertical"
     android:background="@color/transparent0">
@@ -38,7 +39,7 @@
                     android:id="@+id/tvName_profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nguyen Thi Yen Duyen"
+                    android:text="Đọc giả"
                     android:textSize="@dimen/_14sdp"
                     android:textColor="#000"
                     android:textStyle="bold"/>
@@ -50,13 +51,31 @@
                 android:layout_height="match_parent"
                 android:gravity="end">
                 <ImageView
+                    android:id="@+id/ic_detailProfile"
                     android:layout_width="@dimen/_32sdp"
                     android:layout_height="@dimen/_32sdp"
                     android:src="@drawable/ic_arrow_right"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:visibility="gone"/>
+
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btnLoginGG"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+    <Button
+        android:id="@+id/btnLogoutGG"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đăng Xuất"
+        android:background="@drawable/linear_rounded_border"
+        android:layout_margin="@dimen/_4sdp"
+        android:textColor="#E91E63"
+        android:visibility="gone"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -67,6 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <Button
                 android:id="@+id/btnBookMark_profile"
                 android:layout_width="match_parent"
@@ -74,17 +94,6 @@
                 android:textStyle="bold"
                 android:text="DS Luu"
                 android:background="@color/whi0"/>
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/blu4"/>
-            <Button
-                android:id="@+id/btnLike_profile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:background="@color/whi0"
-                android:text="DS Yeu Thich"/>
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_1sdp"
