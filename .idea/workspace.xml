@@ -13,28 +13,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="717af2be-a019-48a6-ae25-4cef38d0623a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_installreferrer_installreferrer_1_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_android_facebook_common_5_15_3_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_android_facebook_core_5_15_3_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_android_facebook_login_5_15_3_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/credentials.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/GetCategory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/GetChangePass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/GetNews.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/GetUserInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/ResponseAllNews.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/ResponseServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/network/NetworkAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/network/ServiceAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/fragment/FragmentProfileUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/fragment/FragmentProfileUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile_user.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,16 +91,20 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/fragment/FragmentProfileUser.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/GetCategory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3045">
-              <caret line="200" column="5" lean-forward="true" selection-start-line="200" selection-start-column="5" selection-end-line="200" selection-end-column="5" />
+            <state relative-caret-position="210">
+              <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3130#3334#0" expanded="true" />
-                <element signature="e#3333#3334#0" expanded="true" />
-                <element signature="e#5779#6026#0" expanded="true" />
-                <element signature="e#6025#6026#0" expanded="true" />
+                <element signature="e#334#335#0" expanded="true" />
+                <element signature="e#360#361#0" expanded="true" />
+                <element signature="e#398#399#0" expanded="true" />
+                <element signature="e#428#429#0" expanded="true" />
+                <element signature="e#464#465#0" expanded="true" />
+                <element signature="e#496#497#0" expanded="true" />
+                <element signature="e#546#547#0" expanded="true" />
+                <element signature="e#588#589#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -126,6 +117,7 @@
       <list>
         <option value="layoutResourceFile_vertical" />
         <option value="resourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -167,6 +159,16 @@
         <option value="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile_user.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/fragment/FragmentProfileUser.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/network/ServiceAPI.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/ResponseNews.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/network/NetworkAPI.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/GetNewsByCate.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/GetNews.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/GetUserInfo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/ResponseServer.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/ResponseAllNews.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/GetChangePass.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/GetCategory.java" />
       </list>
     </option>
   </component>
@@ -180,6 +182,54 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="NewsApp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="NewsApp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="NewsApp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="newsapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NewsApp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="newsapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NewsApp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="newsapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NewsApp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="NewsApp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -207,71 +257,34 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="NewsApp" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="NewsApp" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="NewsApp" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="newsapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NewsApp" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="newsapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="fragment" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NewsApp" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="NewsApp" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/network" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="myexam.th.lth.newsapp.adapter" />
-      <recent name="myexam.th.lth.newsapp" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="myexam.th.lth.newsapp.model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/network" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/app/src/main/res/anim" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
       <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
-      <recent name="$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/fragment" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="myexam.th.lth.newsapp.model" />
+      <recent name="myexam.th.lth.newsapp.adapter" />
+      <recent name="myexam.th.lth.newsapp" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -394,7 +407,7 @@
       <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.50088185" side_tool="true" weight="0.20985557" />
       <window_info id="Capture Tool" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.49911818" visible="true" weight="0.20985557" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.49911818" visible="true" weight="0.20985557" />
       <window_info id="Image Layers" order="6" />
       <window_info id="Resources Explorer" order="7" weight="0.32965165" />
       <window_info id="Structure" order="8" side_tool="true" />
@@ -419,10 +432,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/bottom_navigation.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -592,43 +601,42 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_news_home.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_loading.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_loading.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_hot_news.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_news.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_hot_news.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="41" lean-forward="true" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
@@ -647,9 +655,9 @@
           </folding>
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="25" column="54" lean-forward="true" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
@@ -660,22 +668,23 @@
           </folding>
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_trending.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
         </state>
       </provider>
+      <provider editor-type-id="android-manifest" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
@@ -696,37 +705,193 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_profile_user.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/fragment/FragmentProfileUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="200" column="5" selection-start-line="200" selection-start-column="5" selection-end-line="200" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="346">
           <caret line="67" column="34" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2292#2309#0" expanded="true" />
-            <element signature="e#2482#2764#0" expanded="true" />
-            <element signature="e#2763#2764#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_profile_user.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/ResponseNews.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/fragment/FragmentProfileUser.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/network/ServiceAPI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3045">
-          <caret line="200" column="5" lean-forward="true" selection-start-line="200" selection-start-column="5" selection-end-line="200" selection-end-column="5" />
+        <state relative-caret-position="536">
+          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/GetNewsByCate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="40" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3130#3334#0" expanded="true" />
-            <element signature="e#3333#3334#0" expanded="true" />
-            <element signature="e#5779#6026#0" expanded="true" />
-            <element signature="e#6025#6026#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/network/NetworkAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/ResponseServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#698#699#0" expanded="true" />
+            <element signature="e#726#727#0" expanded="true" />
+            <element signature="e#769#770#0" expanded="true" />
+            <element signature="e#803#804#0" expanded="true" />
+            <element signature="e#837#838#0" expanded="true" />
+            <element signature="e#866#867#0" expanded="true" />
+            <element signature="e#911#912#0" expanded="true" />
+            <element signature="e#947#948#0" expanded="true" />
+            <element signature="e#981#982#0" expanded="true" />
+            <element signature="e#1011#1012#0" expanded="true" />
+            <element signature="e#1057#1058#0" expanded="true" />
+            <element signature="e#1095#1096#0" expanded="true" />
+            <element signature="e#1145#1146#0" expanded="true" />
+            <element signature="e#1175#1176#0" expanded="true" />
+            <element signature="e#1237#1238#0" expanded="true" />
+            <element signature="e#1275#1276#0" expanded="true" />
+            <element signature="e#1325#1326#0" expanded="true" />
+            <element signature="e#1355#1356#0" expanded="true" />
+            <element signature="e#1417#1418#0" expanded="true" />
+            <element signature="e#1455#1456#0" expanded="true" />
+            <element signature="e#1501#1502#0" expanded="true" />
+            <element signature="e#1531#1532#0" expanded="true" />
+            <element signature="e#1589#1590#0" expanded="true" />
+            <element signature="e#1627#1628#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/ResponseAllNews.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#681#682#0" expanded="true" />
+            <element signature="e#709#710#0" expanded="true" />
+            <element signature="e#752#753#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+            <element signature="e#820#821#0" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
+            <element signature="e#894#895#0" expanded="true" />
+            <element signature="e#930#931#0" expanded="true" />
+            <element signature="e#964#965#0" expanded="true" />
+            <element signature="e#994#995#0" expanded="true" />
+            <element signature="e#1040#1041#0" expanded="true" />
+            <element signature="e#1078#1079#0" expanded="true" />
+            <element signature="e#1124#1125#0" expanded="true" />
+            <element signature="e#1154#1155#0" expanded="true" />
+            <element signature="e#1212#1213#0" expanded="true" />
+            <element signature="e#1250#1251#0" expanded="true" />
+            <element signature="e#1283#1284#0" expanded="true" />
+            <element signature="e#1311#1312#0" expanded="true" />
+            <element signature="e#1354#1355#0" expanded="true" />
+            <element signature="e#1388#1389#0" expanded="true" />
+            <element signature="e#1428#1429#0" expanded="true" />
+            <element signature="e#1463#1464#0" expanded="true" />
+            <element signature="e#1520#1521#0" expanded="true" />
+            <element signature="e#1568#1569#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/GetUserInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-869">
+          <caret line="20" column="11" lean-forward="true" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1403#1404#0" expanded="true" />
+            <element signature="e#1429#1430#0" expanded="true" />
+            <element signature="e#1981#1982#0" expanded="true" />
+            <element signature="e#2011#2012#0" expanded="true" />
+            <element signature="e#2209#2210#0" expanded="true" />
+            <element signature="e#2249#2250#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/GetNews.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-329">
+          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/GetChangePass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#358#359#0" expanded="true" />
+            <element signature="e#409#410#0" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
+            <element signature="e#503#504#0" expanded="true" />
+            <element signature="e#545#546#0" expanded="true" />
+            <element signature="e#579#580#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myexam/th/lth/newsapp/model/GetCategory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#334#335#0" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#398#399#0" expanded="true" />
+            <element signature="e#428#429#0" expanded="true" />
+            <element signature="e#464#465#0" expanded="true" />
+            <element signature="e#496#497#0" expanded="true" />
+            <element signature="e#546#547#0" expanded="true" />
+            <element signature="e#588#589#0" expanded="true" />
           </folding>
         </state>
       </provider>
