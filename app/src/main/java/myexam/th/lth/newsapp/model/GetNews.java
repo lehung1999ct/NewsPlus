@@ -1,9 +1,15 @@
 package myexam.th.lth.newsapp.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class GetNews {
+import java.util.ArrayList;
+import java.util.List;
+
+public class GetNews implements Parcelable {
     @SerializedName( "id" )
     @Expose
     private String mId;
@@ -54,6 +60,34 @@ public class GetNews {
         this.mPostDate = mPostDate;
         this.mViewCount = mViewCount;
     }
+
+    protected GetNews(Parcel in) {
+        mId = in.readString();
+        mTitle = in.readString();
+        mDescription = in.readString();
+        mThumb = in.readString();
+        mContent = in.readString();
+        mCateId = in.readString();
+        mTypeId = in.readString();
+        mPostDate = in.readString();
+        if (in.readByte() == 0) {
+            mViewCount = null;
+        } else {
+            mViewCount = in.readInt();
+        }
+    }
+
+    public static final Creator<GetNews> CREATOR = new Creator<GetNews>() {
+        @Override
+        public GetNews createFromParcel(Parcel in) {
+            return new GetNews( in );
+        }
+
+        @Override
+        public GetNews[] newArray(int size) {
+            return new GetNews[size];
+        }
+    };
 
     public String getmId() {
         return mId;
@@ -125,5 +159,29 @@ public class GetNews {
 
     public void setmViewCount(Integer mViewCount) {
         this.mViewCount = mViewCount;
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString( mId );
+        dest.writeString( mTitle );
+        dest.writeString( mDescription );
+        dest.writeString( mThumb );
+        dest.writeString( mContent );
+        dest.writeString( mCateId );
+        dest.writeString( mTypeId );
+        dest.writeString( mPostDate );
+        if (mViewCount == null) {
+            dest.writeByte( (byte) 0 );
+        } else {
+            dest.writeByte( (byte) 1 );
+            dest.writeInt( mViewCount );
+        }
     }
 }

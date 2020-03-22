@@ -29,7 +29,7 @@
                 android:scaleType="fitXY" />
 
             <TextView
-                android:id="@+id/tvTitle_home"
+                android:id="@+id/tvDateTime_hotNews"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/thumbnail"
@@ -38,11 +38,20 @@
                 android:textSize="11dp" />
 
             <TextView
-                android:id="@+id/tvContent_home"
+                android:id="@+id/tvTitle_hotNews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/thumbnail"
+                android:lines="2"
+                android:textColor="#111"
+                android:textSize="11dp" />
+
+            <TextView
+                android:id="@+id/tvContent_hotNews"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lines="2"
-                android:layout_below="@id/tvTitle_home"
+                android:layout_below="@id/tvTitle_hotNews"
                 android:layout_marginRight="10dp"
                 android:gravity="right"
                 android:textColor="@color/colorAccent"
