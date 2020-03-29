@@ -7,9 +7,4 @@
         android:bottomRightRadius="@dimen/_3sdp" />
     <stroke android:color="@color/transparent0"
         android:width="@dimen/_1sdp"/>
-    <padding
-        android:left="@dimen/_4sdp"
-        android:top="@dimen/_2sdp"
-        android:right="@dimen/_4sdp"
-        android:bottom="@dimen/_4sdp"/>
 </shape>

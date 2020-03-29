@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="@dimen/_5sdp"
+        android:padding="@dimen/_2sdp"
         android:background="@color/whi0">
 
         <LinearLayout
@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
-                android:textSize="@dimen/_18sdp"
+                android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
                 android:text="Chu Nhat">
 
@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
-                android:textSize="@dimen/_14sdp"
+                android:textSize="@dimen/_12sdp"
                 android:text="01/01/2020">
             </TextView>
         </LinearLayout>
@@ -63,20 +63,20 @@
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold"
                     android:text="Hồ Chí Minh"
-                    android:layout_marginTop="@dimen/_6sdp">
+                    >
                 </TextView>
                 <TextView
                     android:id="@+id/tvWeather"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000"
-                    android:textSize="@dimen/_14sdp"
+                    android:textSize="@dimen/_12sdp"
                     android:text="29˚C">
                 </TextView>
             </LinearLayout>
             <ImageView
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
                 android:src="@drawable/ic_sun"
                 android:layout_gravity="center"/>
         </LinearLayout>

@@ -18,12 +18,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import myexam.th.lth.newsapp.BuildConfig;
 import myexam.th.lth.newsapp.R;
-import myexam.th.lth.newsapp.adapter.HotNewsAdapter;
 import myexam.th.lth.newsapp.adapter.PaginationAdapter;
-import myexam.th.lth.newsapp.adapter.PaginationScroll;
-import myexam.th.lth.newsapp.adapter.RecyclerItemClickListener;
+import myexam.th.lth.newsapp.utils.PaginationScroll;
 import myexam.th.lth.newsapp.model.GetNews;
 import myexam.th.lth.newsapp.model.ResponseAllNews;
 import myexam.th.lth.newsapp.network.NetworkAPI;
@@ -121,7 +118,9 @@ public class FragmentHotNews extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        shimmer.startShimmer();
+//        shimmer.startShimmer();
+        shimmer.stopShimmer();
+        adapter.notifyDataSetChanged();
     }
 
     @Override

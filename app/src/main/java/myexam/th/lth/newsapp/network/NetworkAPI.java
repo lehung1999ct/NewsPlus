@@ -3,7 +3,9 @@ package myexam.th.lth.newsapp.network;
 
 import myexam.th.lth.newsapp.model.ResponseAllNews;
 import myexam.th.lth.newsapp.model.ResponseServer;
+import myexam.th.lth.newsapp.model.ResponseView;
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -24,6 +26,12 @@ public interface NetworkAPI {
 
     @GET("get/")
     Call<ResponseServer> checkLoginUser(@Query("user") String email);
+
+    //.. View Count ..//
+    @POST("viewCount/")
+    @FormUrlEncoded
+    Call<ResponseView> setViewCount(@Field("id") String idNews,
+                                    @Field("count") String viewCount);
 
     //.. Register ..//
     @POST("register/")

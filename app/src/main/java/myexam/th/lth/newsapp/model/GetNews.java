@@ -32,7 +32,7 @@ public class GetNews implements Parcelable {
 
     @SerializedName( "category_id" )
     @Expose
-    private String mCateId;
+    private int mCateId;
 
     @SerializedName( "type_id" )
     @Expose
@@ -44,12 +44,12 @@ public class GetNews implements Parcelable {
 
     @SerializedName( "views_count" )
     @Expose
-    private Integer mViewCount;
+    private int mViewCount;
 
     public GetNews() {
     }
 
-    public GetNews(String mId, String mTitle, String mDescription, String mThumb, String mContent, String mCateId, String mTypeId, String mPostDate, Integer mViewCount) {
+    public GetNews(String mId, String mTitle, String mDescription, String mThumb, String mContent, int mCateId, String mTypeId, String mPostDate, int mViewCount) {
         this.mId = mId;
         this.mTitle = mTitle;
         this.mDescription = mDescription;
@@ -61,20 +61,44 @@ public class GetNews implements Parcelable {
         this.mViewCount = mViewCount;
     }
 
+//    protected GetNews(Parcel in) {
+//        mId = in.readString();
+//        mTitle = in.readString();
+//        mDescription = in.readString();
+//        mThumb = in.readString();
+//        mContent = in.readString();
+//        mCateId = in.readString();
+//        mTypeId = in.readString();
+//        mPostDate = in.readString();
+//        if (in.readByte() == 0) {
+//            mViewCount = null;
+//        } else {
+//            mViewCount = in.readInt();
+//        }
+//    }
+
+//    public static final Creator<GetNews> CREATOR = new Creator<GetNews>() {
+//        @Override
+//        public GetNews createFromParcel(Parcel in) {
+//            return new GetNews( in );
+//        }
+//
+//        @Override
+//        public GetNews[] newArray(int size) {
+//            return new GetNews[size];
+//        }
+//    };
+
     protected GetNews(Parcel in) {
         mId = in.readString();
         mTitle = in.readString();
         mDescription = in.readString();
         mThumb = in.readString();
         mContent = in.readString();
-        mCateId = in.readString();
+        mCateId = in.readInt();
         mTypeId = in.readString();
         mPostDate = in.readString();
-        if (in.readByte() == 0) {
-            mViewCount = null;
-        } else {
-            mViewCount = in.readInt();
-        }
+        mViewCount = in.readInt();
     }
 
     public static final Creator<GetNews> CREATOR = new Creator<GetNews>() {
@@ -129,11 +153,11 @@ public class GetNews implements Parcelable {
         this.mContent = mContent;
     }
 
-    public String getmCateId() {
+    public int getmCateId() {
         return mCateId;
     }
 
-    public void setmCateId(String mCateId) {
+    public void setmCateId(int mCateId) {
         this.mCateId = mCateId;
     }
 
@@ -161,7 +185,6 @@ public class GetNews implements Parcelable {
         this.mViewCount = mViewCount;
     }
 
-
     @Override
     public int describeContents() {
         return 0;
@@ -174,14 +197,33 @@ public class GetNews implements Parcelable {
         dest.writeString( mDescription );
         dest.writeString( mThumb );
         dest.writeString( mContent );
-        dest.writeString( mCateId );
+        dest.writeInt( mCateId );
         dest.writeString( mTypeId );
         dest.writeString( mPostDate );
-        if (mViewCount == null) {
-            dest.writeByte( (byte) 0 );
-        } else {
-            dest.writeByte( (byte) 1 );
-            dest.writeInt( mViewCount );
-        }
+        dest.writeInt( mViewCount );
     }
+
+
+//    @Override
+//    public int describeContents() {
+//        return 0;
+//    }
+//
+//    @Override
+//    public void writeToParcel(Parcel dest, int flags) {
+//        dest.writeString( mId );
+//        dest.writeString( mTitle );
+//        dest.writeString( mDescription );
+//        dest.writeString( mThumb );
+//        dest.writeString( mContent );
+//        dest.writeString( mCateId );
+//        dest.writeString( mTypeId );
+//        dest.writeString( mPostDate );
+//        if (mViewCount == null) {
+//            dest.writeByte( (byte) 0 );
+//        } else {
+//            dest.writeByte( (byte) 1 );
+//            dest.writeInt( mViewCount );
+//        }
+//    }
 }

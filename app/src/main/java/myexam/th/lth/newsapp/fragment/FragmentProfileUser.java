@@ -31,6 +31,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import myexam.th.lth.newsapp.R;
+import myexam.th.lth.newsapp.screen.BookmarkActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,7 +43,7 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
 
     private String name,email,pass,id;
     private SignInButton btnLoginGG;
-    private Button btnLogoutGG;
+    private Button btnLogoutGG,btnBookMark_profile;
     private TextView tvName_profile;
 
     ImageView ic_detailProfile,avtProfile;
@@ -75,9 +76,11 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
 
         btnLoginGG = (SignInButton) view.findViewById( R.id.btnLoginGG );
         btnLogoutGG = (Button) view.findViewById( R.id.btnLogoutGG );
+        btnBookMark_profile = (Button) view.findViewById( R.id.btnBookMark_profile );
         btnLoginGG.setSize( SignInButton.SIZE_STANDARD );
 
         btnLoginGG.setOnClickListener( this );
+        btnBookMark_profile.setOnClickListener( this );
         btnLogoutGG.setOnClickListener( this );
 
         return view;
@@ -137,14 +140,18 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
         switch (v.getId()){
             case R.id.btnLoginGG:
                 signIn();
-
                 break;
+
             case R.id.btnLogoutGG:
                 signOut();
                 tvName_profile.setText( "Đọc giả" );
                 btnLoginGG.setVisibility( View.VISIBLE );
                 btnLogoutGG.setVisibility( View.GONE );
                 ic_detailProfile.setVisibility( View.GONE );
+                break;
+
+            case R.id.btnBookMark_profile:
+                startActivity( new Intent( v.getContext(), BookmarkActivity.class ) );
                 break;
         }
     }
