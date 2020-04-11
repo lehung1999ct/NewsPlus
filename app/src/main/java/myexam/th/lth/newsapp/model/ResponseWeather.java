@@ -1,5 +1,8 @@
 package myexam.th.lth.newsapp.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 import myexam.th.lth.newsapp.model.currentWeather.Clouds;
@@ -13,7 +16,11 @@ public class ResponseWeather {
     private Coord mCoord;
     private List<Weather> mWeather;
     private String mBase;
+
+    @SerializedName( "main" )
+    @Expose
     private Main mMain;
+
     private int mVisibility;
     private Wind mWind;
     private Clouds mClouds;
@@ -21,6 +28,9 @@ public class ResponseWeather {
     private Sys mSys;
     private int mTimezone;
     private int mId;
+
+    @SerializedName( "name" )
+    @Expose
     private String mName;
     private int mCod;
 

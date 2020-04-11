@@ -36,6 +36,7 @@ import myexam.th.lth.newsapp.Constant;
 import myexam.th.lth.newsapp.MainActivity;
 import myexam.th.lth.newsapp.R;
 import myexam.th.lth.newsapp.model.ResponseWeather;
+import myexam.th.lth.newsapp.model.currentWeather.Main;
 import myexam.th.lth.newsapp.model.currentWeather.Weather;
 import myexam.th.lth.newsapp.network.NetworkAPI;
 import myexam.th.lth.newsapp.network.RetrofitWeather;
@@ -54,7 +55,7 @@ public class FragmentHotNews extends Fragment {
     private LocationRequest locationRequest;
     private CompositeDisposable compositeDisposable;
     private NetworkAPI api;
-
+    private Main mainTemp;
     private TextView tvLocation,tvWeather;
 
     static FragmentHotNews instance;
@@ -68,10 +69,10 @@ public class FragmentHotNews extends Fragment {
 
     public FragmentHotNews() {
         // Required empty public constructor
-//        compositeDisposable = new CompositeDisposable(  );
+        compositeDisposable = new CompositeDisposable(  );
 //
-//        Retrofit retrofit = RetrofitWeather.getInstance();
-//        api = retrofit.create( NetworkAPI.class );
+        Retrofit retrofit = RetrofitWeather.getInstance();
+        api = retrofit.create( NetworkAPI.class );
 
 
     }
@@ -86,36 +87,42 @@ public class FragmentHotNews extends Fragment {
         tvLocation = view.findViewById( R.id.tvLocation );
         tvWeather = view.findViewById( R.id.tvWeather );
 
-//        gerCurrentWeather();
+        gerCurrentWeather();
 
         return view;
     }
 
 //    private void gerCurrentWeather() {
-//        compositeDisposable.add(
-//                    api.getWheatherResult(
-//                            "10.08",
-//                            "105.78",
-//                            Constant.API_KEY,
-//                            "metric" )
-//                .subscribeOn( Schedulers.io() )
-//                .observeOn( AndroidSchedulers.mainThread() )
-//                .subscribe( new Consumer<ResponseWeather>() {
-//                    @Override
-//                    public void accept(ResponseWeather responseWeather) throws Exception {
-//                        tvLocation.setText( responseWeather.getmName() );
-//                        tvWeather.setText( new StringBuilder (String.valueOf( responseWeather.getmMain().getTemp() )).append( "˚C").toString());
+//        getActivity().runOnUiThread( new Runnable() {
+//            @Override
+//            public void run() {
+//                compositeDisposable.add(
+//                        api.getWheatherResult(
+//                                String.valueOf( Constant.LOCATION_CURRENT.getLatitude() ),
+//                                String.valueOf( Constant.LOCATION_CURRENT.getLongitude() ),
+//                                Constant.API_KEY,
+//                                "metric" )
+//                                .subscribeOn( Schedulers.io() )
+//                                .observeOn( AndroidSchedulers.mainThread() )
+//                                .subscribe( new Consumer<ResponseWeather>() {
+//                                    @Override
+//                                    public void accept(ResponseWeather responseWeather) throws Exception {
+//                                        mainTemp = responseWeather.getmMain();
+//                                        tvLocation.setText( responseWeather.getmBase() );
+//                                        tvWeather.setText( mainTemp.getTemp() );
 ////                        List<Weather> w3s = responseWeather.getmWeather();
-//                        Toast.makeText( getActivity(),responseWeather.getmMain().getTemp(),Toast.LENGTH_SHORT ).show();
-//                    }
-//                }, new Consumer<Throwable>() {
-//                    @Override
-//                    public void accept(Throwable throwable) throws Exception {
-//                        Toast.makeText( getActivity(),"error: "+ throwable.getMessage(), Toast.LENGTH_SHORT ).show();
-//                        Log.e( TAG, "error: "+ throwable.getMessage());
-//                    }
-//                } )
-//        );
+//                                        Toast.makeText( getActivity(),responseWeather.getmMain().getTemp(),Toast.LENGTH_SHORT ).show();
+//                                    }
+//                                }, new Consumer<Throwable>() {
+//                                    @Override
+//                                    public void accept(Throwable throwable) throws Exception {
+//                                        Toast.makeText( getActivity(),"error: "+ throwable.getMessage(), Toast.LENGTH_SHORT ).show();
+//                                        Log.e( TAG, "error: "+ throwable.getMessage());
+//                                    }
+//                                } )
+//                );
+//            }
+//        } );
 //    }
 
     @Override
@@ -124,45 +131,77 @@ public class FragmentHotNews extends Fragment {
     }
 
 
-//    public void gerCurrentWeather(){
-//        Dexter.withActivity( getActivity() )
-//                .withPermissions( Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION )
-//                .withListener( new MultiplePermissionsListener() {
-//            @Override
-//            public void onPermissionsChecked(MultiplePermissionsReport report) {
-//                buildLocationRequest();
-//                buildLocationCallBack();
-//
-//                fuse = LocationServices.getFusedLocationProviderClient( getActivity() );
-//                fuse.requestLocationUpdates( locationRequest,locationCallback, Looper.myLooper() );
-//            }
-//
-//            @Override
-//            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-//                Toast.makeText( getActivity(),"Đã từ chối quyền truy cập",Toast.LENGTH_SHORT ).show();
-//            }
-//        } ).check();
-//    }
-//
-//    //LOCATION REQUEST
-//    private void buildLocationRequest(){
-//        locationRequest = new LocationRequest();
-//        locationRequest.setPriority( LocationRequest.PRIORITY_HIGH_ACCURACY );
-//        locationRequest.setInterval( 5000 );
-//        locationRequest.setFastestInterval( 3000 );
-//        locationRequest.setSmallestDisplacement( 10.0f );
-//    }
-//    //LOCATION CALL BACK
-//    private void buildLocationCallBack(){
-//        locationCallback = new LocationCallback(){
-//            @Override
-//            public void onLocationResult(LocationResult locationResult) {
-//                super.onLocationResult( locationResult );
-//
-//                Constant.LOCATION_CURRENT = locationResult.getLastLocation();
-//
+    public void gerCurrentWeather(){
+        Dexter.withActivity( getActivity() )
+                .withPermissions( Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION )
+                .withListener( new MultiplePermissionsListener() {
+            @Override
+            public void onPermissionsChecked(MultiplePermissionsReport report) {
+                buildLocationRequest();
+                buildLocationCallBack();
+
+                fuse = LocationServices.getFusedLocationProviderClient( getActivity() );
+                fuse.requestLocationUpdates( locationRequest,locationCallback, Looper.myLooper() );
+            }
+
+            @Override
+            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                Toast.makeText( getActivity(),"Đã từ chối quyền truy cập",Toast.LENGTH_SHORT ).show();
+            }
+        } ).check();
+    }
+
+    //LOCATION REQUEST
+    private void buildLocationRequest(){
+        locationRequest = new LocationRequest();
+        locationRequest.setPriority( LocationRequest.PRIORITY_HIGH_ACCURACY );
+        locationRequest.setInterval( 5000 );
+        locationRequest.setFastestInterval( 3000 );
+        locationRequest.setSmallestDisplacement( 10.0f );
+    }
+    //LOCATION CALL BACK
+    private void buildLocationCallBack(){
+        locationCallback = new LocationCallback(){
+            @Override
+            public void onLocationResult(LocationResult locationResult) {
+                super.onLocationResult( locationResult );
+
+                Constant.LOCATION_CURRENT = locationResult.getLastLocation();
+
 //                Toast.makeText( getActivity(),"Latitude: " +locationResult.getLastLocation().getLatitude()+"Longitude: " +locationResult.getLastLocation().getLongitude(), Toast.LENGTH_SHORT ).show();
-//            }
-//        };
-//    }
+                dcm( locationResult.getLastLocation().getLatitude(), locationResult.getLastLocation().getLongitude());
+            }
+        };
+    }
+
+    //
+
+    private void dcm(double lat, double lon){
+        compositeDisposable.add(
+                api.getWheatherResult(
+                        String.valueOf( lat ),
+                        String.valueOf( lon ),
+                        Constant.API_KEY,
+                        "metric" )
+                        .subscribeOn( Schedulers.io() )
+                        .observeOn( AndroidSchedulers.mainThread() )
+                        .subscribe( new Consumer<ResponseWeather>() {
+                            @Override
+                            public void accept(ResponseWeather responseWeather) throws Exception {
+//                                mainTemp = responseWeather.getmMain();
+                                int tempi = (int) Math.round( responseWeather.getmMain().getTemp() );
+                                tvLocation.setText( responseWeather.getmName() );
+                                tvWeather.setText( String.valueOf( tempi ) );
+//                        List<Weather> w3s = responseWeather.getmWeather();
+//                                Toast.makeText( getActivity(),String.valueOf( responseWeather.getmMain().getTemp() ),Toast.LENGTH_SHORT ).show();
+                            }
+                        }, new Consumer<Throwable>() {
+                            @Override
+                            public void accept(Throwable throwable) throws Exception {
+                                Toast.makeText( getActivity(),"error: "+ throwable.getMessage(), Toast.LENGTH_SHORT ).show();
+                                Log.e( TAG, "error: "+ throwable.getMessage());
+                            }
+                        } )
+        );
+    }
 }
