@@ -17,17 +17,17 @@ public class ServiceAPI {
     public static <S> S getUserService(Class<S> serviceClass) {
 
         OkHttpClient httpClient = new OkHttpClient.Builder()
-                .connectTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30, TimeUnit.SECONDS)
-                .writeTimeout(30, TimeUnit.SECONDS)
+                .connectTimeout( 30, TimeUnit.SECONDS )
+                .readTimeout( 30, TimeUnit.SECONDS )
+                .writeTimeout( 30, TimeUnit.SECONDS )
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL + FOLDER_USER)
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(httpClient).build();
+                .baseUrl( BASE_URL + FOLDER_USER )
+                .addConverterFactory( GsonConverterFactory.create() )
+                .client( httpClient ).build();
 
-        return retrofit.create(serviceClass);
+        return retrofit.create( serviceClass );
 
     }
 
@@ -43,17 +43,17 @@ public class ServiceAPI {
     public static <S> S getNewsService(Class<S> serviceClass) {
 
         OkHttpClient httpClient = new OkHttpClient.Builder()
-                .connectTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30, TimeUnit.SECONDS)
-                .writeTimeout(30, TimeUnit.SECONDS)
+                .connectTimeout( 30, TimeUnit.SECONDS )
+                .readTimeout( 30, TimeUnit.SECONDS )
+                .writeTimeout( 30, TimeUnit.SECONDS )
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL + FOLDER_NEWS)
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(httpClient).build();
+                .baseUrl( BASE_URL + FOLDER_NEWS )
+                .addConverterFactory( GsonConverterFactory.create() )
+                .client( httpClient ).build();
 
-        return retrofit.create(serviceClass);
+        return retrofit.create( serviceClass );
 
     }
 }

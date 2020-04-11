@@ -1,10 +1,24 @@
 package myexam.th.lth.newsapp;
 
 import android.content.DialogInterface;
+import android.Manifest;
 import android.os.Bundle;
+import android.os.Looper;
 import android.view.MenuItem;
-
+import android.widget.Toast;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -17,6 +31,10 @@ import myexam.th.lth.newsapp.fragment.FragmentNews;
 import myexam.th.lth.newsapp.fragment.FragmentTrending;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+
+    private FusedLocationProviderClient fuse;
+    private LocationCallback locationCallback;
+    private LocationRequest locationRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
