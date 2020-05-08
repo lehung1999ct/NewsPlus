@@ -54,7 +54,8 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
     private SimpleDateFormat fmtOut = new SimpleDateFormat("dd-MM-yyyy");
     private SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
 
-    String id_hot,title_hot,description_hot,thumb_hot,category_id_hot,post_date_hot,views_count_hot,content_hot;
+    String id_hot,title_hot,description_hot,thumb_hot,post_date_hot,views_count_hot,content_hot;
+    int category_id_hot;
 
     //.. ..//
 
@@ -89,7 +90,7 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
             title_hot = getIntent().getExtras().getString( "title_hot" );
             description_hot = getIntent().getExtras().getString( "description_hot" );
             thumb_hot = getIntent().getExtras().getString( "thumb_hot" );
-            category_id_hot = getIntent().getExtras().getString( "category_id_hot" );
+            category_id_hot = getIntent().getExtras().getInt( "category_id_hot" ) ;
             post_date_hot = getIntent().getExtras().getString( "post_date_hot" );
             views_count_hot = getIntent().getExtras().getString( "views_count_hot" );
             content_hot = getIntent().getExtras().getString( "content_hot" );
@@ -99,7 +100,46 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
                     .placeholder( R.drawable.image_icon_load )
                     .into( ivImage_detail );
 
-            tvCate_detail.setText(category_id_hot);
+//            tvCate_detail.setText(category_id_hot);
+            switch (category_id_hot){
+                case 1:
+                    tvCate_detail.setText("Thể Thao");
+                    break;
+                case 2:
+                    tvCate_detail.setText("Gia Đình");
+                    break;
+                case 3:
+                    tvCate_detail.setText("Thế Giới");
+                    break;
+                case 4:
+                    tvCate_detail.setText("Kinh Tế");
+                    break;
+                case 5:
+                    tvCate_detail.setText("Giải Trí");
+                    break;
+                case 6:
+                    tvCate_detail.setText("Công Nghệ");
+                    break;
+                case 7:
+                    tvCate_detail.setText("Nhà Đất");
+                    break;
+                case 8:
+                    tvCate_detail.setText("Thế Giới Xe");
+                    break;
+                case 9:
+                    tvCate_detail.setText("Kinh Doanh");
+                    break;
+                case 10:
+                    tvCate_detail.setText("KXD0");
+                    break;
+                case 11:
+                    tvCate_detail.setText("Sức Khỏe");
+                    break;
+                case 12:
+                    tvCate_detail.setText("KXD1");
+                    break;
+            }
+
             tvViewCount_detail.setText( views_count_hot );
             tvTittle_detail.setText( title_hot );
             tvDateTime_detail.setText(post_date_hot);
@@ -163,7 +203,7 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
             case R.id.ic_bookmark:
                 if (checkEqual()>0){
                     Toast.makeText( getBaseContext(), "Đã thêm vào xem sau", Toast.LENGTH_SHORT ).show();
-                    saveBookmark( id_hot,title_hot,description_hot,thumb_hot,category_id_hot,post_date_hot,content_hot );
+                    saveBookmark( id_hot,title_hot,description_hot,thumb_hot, String.valueOf( tvCate_detail.getText() ),post_date_hot,content_hot );
                     finish();
                     startActivity( new Intent( this,BookmarkActivity.class ) );
                 }else {

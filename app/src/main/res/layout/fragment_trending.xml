@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.FragmentTrending"
-    android:background="@color/transparent0">
+    android:background="#fafafa">
 
-    <!-- TODO: Update blank fragment layout -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvList_trends"
+    <com.facebook.shimmer.ShimmerFrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:id="@+id/shimmerLoading_trend"
+        app:shimmer_duration="1500"
+        android:visibility="visible">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <include layout="@layout/layout_loading"/>
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:padding="@dimen/_2sdp"
+        android:id="@+id/sd1223"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Xem nhiều nhất"
+        android:textSize="@dimen/_18sdp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:textColor="#000"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/sd1223"
+        android:id="@+id/rvList_trends"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fafafa"/>
 
-</FrameLayout>
+</RelativeLayout>

@@ -7,6 +7,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class GetNews implements Parcelable {
@@ -203,7 +204,12 @@ public class GetNews implements Parcelable {
         dest.writeInt( mViewCount );
     }
 
-
+public static Comparator<GetNews> comparatorNews = new Comparator<GetNews>() {
+    @Override
+    public int compare(GetNews o1, GetNews o2) {
+        return Integer.compare( o2.mViewCount,o1.mViewCount );
+    }
+};
 //    @Override
 //    public int describeContents() {
 //        return 0;

@@ -83,7 +83,7 @@
                 <ImageView
                     android:layout_width="@dimen/_24sdp"
                     android:layout_height="@dimen/_24sdp"
-                    android:src="@drawable/bookmark" />
+                    android:src="@drawable/ic_eye_black" />
                 <TextView
                     android:id="@+id/tvViewCount_detail"
                     android:layout_width="match_parent"
@@ -106,15 +106,16 @@
                     <ImageView
                         android:layout_width="@dimen/_24sdp"
                         android:layout_height="@dimen/_24sdp"
-                        android:src="@drawable/bookmark" />
+                        android:src="@drawable/ic_cate" />
 
                     <TextView
-                        android:id="@+id/tvPoster_detail"
+                        android:id="@+id/tvCate_detail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="@dimen/_4sdp"
-                        android:text="poster"
+                        android:text="date time"
                         android:textSize="@dimen/_11sdp"/>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -125,7 +126,7 @@
                     <ImageView
                         android:layout_width="@dimen/_24sdp"
                         android:layout_height="@dimen/_24sdp"
-                        android:src="@drawable/bookmark" />
+                        android:src="@drawable/ic_calendar" />
 
                     <TextView
                         android:id="@+id/tvDateTime_detail"
@@ -142,19 +143,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/_4sdp">
+                android:padding="@dimen/_4sdp"
+                android:visibility="gone">
                 <ImageView
                     android:layout_width="@dimen/_24sdp"
                     android:layout_height="@dimen/_24sdp"
                     android:src="@drawable/bookmark" />
-
                 <TextView
-                    android:id="@+id/tvCate_detail"
+                    android:id="@+id/tvPoster_detail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="@dimen/_4sdp"
-                    android:text="date time"
+                    android:text="poster"
                     android:textSize="@dimen/_11sdp"/>
+
             </LinearLayout>
 
             <TextView

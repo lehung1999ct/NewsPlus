@@ -85,14 +85,14 @@ public class FragmentHotNews extends Fragment {
     private Main mainTemp;
     private TextView tvLocation,tvWeather;
 
-    static FragmentHotNews instance;
-
-    public static FragmentHotNews getInstance(){
-        if(instance==null){
-            instance = new FragmentHotNews();
-        }
-        return instance;
-    }
+//    static FragmentHotNews instance;
+//
+//    public static FragmentHotNews getInstance(){
+//        if(instance==null){
+//            instance = new FragmentHotNews();
+//        }
+//        return instance;
+//    }
 
     public FragmentHotNews() {
         // Required empty public constructor
