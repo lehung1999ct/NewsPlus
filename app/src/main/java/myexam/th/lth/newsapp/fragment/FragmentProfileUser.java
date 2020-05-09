@@ -11,10 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -41,10 +44,11 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
     private static final String TAG = "ProfileUser";
     private static final int RC_SIGN_IN = 101;
 
-    private String name,email,pass,id;
+    private String name,email,pass,id,avt;
     private SignInButton btnLoginGG;
-    private Button btnLogoutGG,btnBookMark_profile;
+    private ImageButton btnLogoutGG,btnBookMark_profile;
     private TextView tvName_profile;
+    private LinearLayout itemLogout;
 
     ImageView ic_detailProfile,avtProfile;
 
@@ -61,10 +65,9 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate( R.layout.fragment_profile_user, container, false );
-
         tvName_profile = (TextView)view.findViewById( R.id.tvName_profile );
-
-        ic_detailProfile = (ImageView)view.findViewById( R.id.ic_detailProfile );
+        avtProfile = (ImageView)view.findViewById( R.id.ivThumbUser );
+        itemLogout = (LinearLayout)view.findViewById( R.id.itemLogout );
         //Google Login Services
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -75,13 +78,15 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
 
 
         btnLoginGG = (SignInButton) view.findViewById( R.id.btnLoginGG );
-        btnLogoutGG = (Button) view.findViewById( R.id.btnLogoutGG );
-        btnBookMark_profile = (Button) view.findViewById( R.id.btnBookMark_profile );
+        btnLogoutGG = (ImageButton) view.findViewById( R.id.btnLogoutGG );
+        btnBookMark_profile = (ImageButton) view.findViewById( R.id.btnBookMark_profile );
         btnLoginGG.setSize( SignInButton.SIZE_STANDARD );
 
         btnLoginGG.setOnClickListener( this );
         btnBookMark_profile.setOnClickListener( this );
         btnLogoutGG.setOnClickListener( this );
+
+
 
         return view;
     }
@@ -101,28 +106,10 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
                 });
     }
 
-
-//    private void getInfoLogin(View view){
-//        mGoggle = GoogleSignIn.getLastSignedInAccount(view.getContext());
-//        if (mGoggle != null) {
-//            String mName = mGoggle.getDisplayName();
-//            String mGivenName = mGoggle.getGivenName();
-//            String mFamilyName = mGoggle.getFamilyName();
-//
-//            String mFullname = mFamilyName + mName;
-//            String mEmail = mGoggle.getEmail();
-//            String mId = mGoggle.getId();
-//            tvName_profile.setText( mGoggle.getFamilyName()+" "+mGoggle.getDisplayName() );
-//
-////            Toast.makeText( view.getContext(), mFullname+"\n"+mEmail,Toast.LENGTH_SHORT  ).show();
-//        }else
-//            Log.d( TAG,"LOGIN FAIL!" );
-//
-//    }
-
     private void getInfo(GoogleSignInAccount account) {
         if (account != null){
             email = account.getEmail();
+            avt = String.valueOf( account.getPhotoUrl() );
             //Get Google infomation
 //            Toast.makeText(LoginActivity.this,
 //                    account.getDisplayName() + "\n"+
@@ -143,11 +130,21 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
                 break;
 
             case R.id.btnLogoutGG:
-                signOut();
-                tvName_profile.setText( "Đọc giả" );
-                btnLoginGG.setVisibility( View.VISIBLE );
-                btnLogoutGG.setVisibility( View.GONE );
-                ic_detailProfile.setVisibility( View.GONE );
+                final ProgressDialog dialog = ProgressDialog.show(getActivity(), "Đang đăng xuất",
+                        "Vui lòng chờ...", true);
+                dialog.show();
+                new Handler(  ).postDelayed( new Runnable() {
+                    @Override
+                    public void run() {
+                        signOut();
+                        tvName_profile.setText( "Đọc giả" );
+                        btnLoginGG.setVisibility( View.VISIBLE );
+                        itemLogout.setVisibility( View.GONE );
+                        avtProfile.setImageResource( R.drawable.ic_user );
+                        dialog.dismiss();
+                    }
+
+                }, 1500 );
                 break;
 
             case R.id.btnBookMark_profile:
@@ -168,9 +165,11 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
                         // On complete call either onLoginSuccess
 //                        getInfoLogin(getView());
                         btnLoginGG.setVisibility( View.GONE );
-                        btnLogoutGG.setVisibility( View.VISIBLE );
-                        ic_detailProfile.setVisibility( View.VISIBLE );
-
+                        itemLogout.setVisibility( View.VISIBLE );
+                        getInfo( mGoggle );
+                        Toast.makeText( getContext(), "thumb: "+avt, Toast.LENGTH_SHORT ).show();
+                        tvName_profile.setText( email );
+                        Glide.with( getView().getContext() ).load( avt ).placeholder( R.drawable.ic_user ).into( avtProfile );
                         dialog.dismiss();
                     }
                 }, 2000);
@@ -201,8 +200,7 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.w(TAG, "failed code: " + e.getStatusCode());
             btnLoginGG.setVisibility( View.VISIBLE );
-            btnLogoutGG.setVisibility( View.GONE );
-            ic_detailProfile.setVisibility( View.GONE );
+            itemLogout.setVisibility( View.GONE );
             getInfo(null);
         }
     }
