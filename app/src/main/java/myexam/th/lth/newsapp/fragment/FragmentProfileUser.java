@@ -28,12 +28,22 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.Executor;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import myexam.th.lth.newsapp.R;
+import myexam.th.lth.newsapp.adapter.BookmarkAdapter;
+import myexam.th.lth.newsapp.adapter.SeenAdapter;
+import myexam.th.lth.newsapp.dao.NewsDAO;
+import myexam.th.lth.newsapp.dao.NewsSeenDAO;
+import myexam.th.lth.newsapp.model.BookmarkNews;
+import myexam.th.lth.newsapp.model.NewsSeen;
 import myexam.th.lth.newsapp.screen.BookmarkActivity;
 
 /**
@@ -50,15 +60,21 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
     private TextView tvName_profile;
     private LinearLayout itemLogout;
 
-    ImageView ic_detailProfile,avtProfile;
+    ImageView avtProfile;
 
     private GoogleSignInAccount mGoggle;
     private GoogleSignInClient mGoogleSignInClient;
 
+
+    NewsSeenDAO dao;
+    ArrayList<NewsSeen> arrayList;
+    private RecyclerView rvSeen_profile;
+    private SeenAdapter adapter;
+
+
     public FragmentProfileUser() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,6 +84,10 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
         tvName_profile = (TextView)view.findViewById( R.id.tvName_profile );
         avtProfile = (ImageView)view.findViewById( R.id.ivThumbUser );
         itemLogout = (LinearLayout)view.findViewById( R.id.itemLogout );
+
+        rvSeen_profile = (RecyclerView)view.findViewById( R.id.rvSeen_profile );
+
+        init();
         //Google Login Services
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -87,8 +107,25 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
         btnLogoutGG.setOnClickListener( this );
 
 
+        LinearLayoutManager manager = new LinearLayoutManager( getContext(),RecyclerView.VERTICAL,false );
 
+        rvSeen_profile.setLayoutManager( manager );
+        rvSeen_profile.setAdapter( adapter );
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
+    }
+
+    private void init(){
+
+        dao = NewsSeenDAO.getInstance( getContext() );
+        arrayList=dao.getBookmarkAll();
+        Collections.sort( arrayList, NewsSeen.comparatorNews );
+        adapter = new SeenAdapter( getContext(),arrayList );
     }
 
     private void signIn() {
@@ -167,9 +204,9 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
                         btnLoginGG.setVisibility( View.GONE );
                         itemLogout.setVisibility( View.VISIBLE );
                         getInfo( mGoggle );
-                        Toast.makeText( getContext(), "thumb: "+avt, Toast.LENGTH_SHORT ).show();
+//                        Toast.makeText( getContext(), "thumb: "+avt, Toast.LENGTH_SHORT ).show();
                         tvName_profile.setText( email );
-                        Glide.with( getView().getContext() ).load( avt ).placeholder( R.drawable.ic_user ).into( avtProfile );
+                        Glide.with( getContext() ).load( avt ).placeholder( R.drawable.ic_user ).into( avtProfile );
                         dialog.dismiss();
                     }
                 }, 2000);

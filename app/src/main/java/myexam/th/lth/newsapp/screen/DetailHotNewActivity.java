@@ -5,7 +5,9 @@ import androidx.appcompat.widget.Toolbar;
 import myexam.th.lth.newsapp.R;
 import myexam.th.lth.newsapp.dao.BookmarkDBHelper;
 import myexam.th.lth.newsapp.dao.NewsDAO;
+import myexam.th.lth.newsapp.dao.NewsSeenDAO;
 import myexam.th.lth.newsapp.model.BookmarkNews;
+import myexam.th.lth.newsapp.model.NewsSeen;
 import myexam.th.lth.newsapp.model.ResponseServer;
 import myexam.th.lth.newsapp.model.ResponseView;
 import myexam.th.lth.newsapp.network.NetworkAPI;
@@ -46,7 +48,6 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
     private NewsDAO dao;
     private BookmarkNews temp;
     ArrayList<BookmarkNews> arrBookmark;
-    private BookmarkDBHelper helper;
 
     NetworkAPI api;
 
@@ -59,6 +60,10 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
 
     //.. ..//
 
+    private NewsSeenDAO seenDAO;
+    private NewsSeen seenTemp;
+    ArrayList<NewsSeen> arrSeen;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -69,7 +74,7 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
+        seenTemp = new NewsSeen(  );
         init();
 
         tvTittle_detail = findViewById( R.id.tvTitle_detail );
@@ -152,12 +157,14 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
 
         }
 
+        NewsSeen();
+
         api = ServiceAPI.getNewsService( NetworkAPI.class );
 
         setVC( id_hot, views_count_hot ).enqueue( new Callback<ResponseView>() {
             @Override
             public void onResponse(Call<ResponseView> call, Response<ResponseView> response) {
-                Toast.makeText( getBaseContext(), "Oke", Toast.LENGTH_SHORT ).show();
+
             }
 
             @Override
@@ -171,6 +178,10 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
         //.. connect sqlite
         dao = NewsDAO.getInstance( getBaseContext() );
         arrBookmark = dao.getBookmarkAll();
+
+        seenDAO = NewsSeenDAO.getInstance( getBaseContext() );
+        arrSeen = seenDAO.getBookmarkAll();
+
     }
 
     public void saveBookmark(String id_hot, String title_hot, String description_hot,String thumb_hot,String category_id_hot,String post_date_hot,String content_hot){
@@ -218,6 +229,31 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
         for (i=0;i<arrBookmark.size();i++){
             temp = arrBookmark.get( i );
             if (temp.getbIdNews().equals( id_hot )){
+                val -= 1;
+            }else {
+                val += 1 ;
+            }
+        }
+        return val;
+    }
+
+    private void NewsSeen(){
+        NewsSeen temp = new NewsSeen(  );
+        temp.setmIdNews( id_hot );
+        temp.setmTitle( title_hot );
+        temp.setmDesc( description_hot );
+        temp.setmCate( String.valueOf( tvCate_detail.getText()) );
+        temp.setmDate( post_date_hot );
+        temp.setmThumb( thumb_hot );
+
+        seenDAO.insertProduct( temp );
+    }
+    private int checkEqualSeen(){
+        int val = 1;
+        int i;
+        for (i=0;i<arrSeen.size();i++){
+            seenTemp = arrSeen.get( i );
+            if (seenTemp.getmIdNews().equals( id_hot )){
                 val -= 1;
             }else {
                 val += 1 ;

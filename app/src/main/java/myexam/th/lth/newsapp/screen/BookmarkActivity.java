@@ -25,7 +25,6 @@ import java.util.ArrayList;
 
 public class BookmarkActivity extends AppCompatActivity {
 
-    private BookmarkNews ObjectNews;
     NewsDAO dao;
     ArrayList<BookmarkNews> arrayList;
     private RecyclerView rvBookmark;
