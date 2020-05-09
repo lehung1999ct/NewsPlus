@@ -45,6 +45,8 @@ import myexam.th.lth.newsapp.dao.NewsSeenDAO;
 import myexam.th.lth.newsapp.model.BookmarkNews;
 import myexam.th.lth.newsapp.model.NewsSeen;
 import myexam.th.lth.newsapp.screen.BookmarkActivity;
+import myexam.th.lth.newsapp.screen.InfoActivity;
+import myexam.th.lth.newsapp.screen.WeatherActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -56,7 +58,7 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
 
     private String name,email,pass,id,avt;
     private SignInButton btnLoginGG;
-    private ImageButton btnLogoutGG,btnBookMark_profile;
+    private ImageButton btnLogoutGG,btnBookMark_profile,btnWeather,btnInfoApp;
     private TextView tvName_profile;
     private LinearLayout itemLogout;
 
@@ -86,6 +88,8 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
         itemLogout = (LinearLayout)view.findViewById( R.id.itemLogout );
 
         rvSeen_profile = (RecyclerView)view.findViewById( R.id.rvSeen_profile );
+        btnWeather = (ImageButton)view.findViewById( R.id.btnWeather ) ;
+        btnInfoApp = (ImageButton)view.findViewById( R.id.btnInfoApp ) ;
 
         init();
         //Google Login Services
@@ -105,6 +109,8 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
         btnLoginGG.setOnClickListener( this );
         btnBookMark_profile.setOnClickListener( this );
         btnLogoutGG.setOnClickListener( this );
+        btnWeather.setOnClickListener( this );
+        btnInfoApp.setOnClickListener( this );
 
 
         LinearLayoutManager manager = new LinearLayoutManager( getContext(),RecyclerView.VERTICAL,false );
@@ -187,6 +193,15 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
             case R.id.btnBookMark_profile:
                 startActivity( new Intent( v.getContext(), BookmarkActivity.class ) );
                 break;
+
+            case R.id.btnWeather:
+                startActivity( new Intent( v.getContext(), WeatherActivity.class ) );
+                break;
+
+            case R.id.btnInfoApp:
+                startActivity( new Intent( v.getContext(), InfoActivity.class ) );
+                break;
+
         }
     }
 

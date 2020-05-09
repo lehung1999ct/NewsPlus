@@ -161,6 +161,7 @@
                 android:background="@drawable/item_user"
                 android:orientation="vertical">
                 <ImageButton
+                    android:id="@+id/btnInfoApp"
                     android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp"
                     android:background="@drawable/ic_info_app"
