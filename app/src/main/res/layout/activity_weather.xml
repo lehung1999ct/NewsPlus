@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screen.WeatherActivity">
+    tools:context=".screen.WeatherActivity"
+    android:background="#dff9fb">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_weather"
         android:layout_width="match_parent"
@@ -15,7 +16,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_below="@+id/toolbar_weather">
 
@@ -30,6 +31,14 @@
                 android:layout_height="@dimen/_90sdp"
                 android:src="@drawable/ic_moon"/>
         </LinearLayout>
+        <TextView
+            android:id="@+id/tvDecs_weather"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_16sdp"
+            android:textColor="#000"
+            android:gravity="center"
+            android:text="Desc"/>
 
         <TextView
             android:id="@+id/tvCity_weather"
@@ -50,14 +59,25 @@
             android:gravity="center"
             android:text="30 C˚"/>
 
-        <TextView
-            android:id="@+id/tvHumidity_weather"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/_16sdp"
-            android:textColor="#000"
-            android:gravity="center"
-            android:text="Humidity"/>
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:padding="@dimen/_4sdp">
+            <ImageView
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:src="@drawable/ic_calendar"/>
+            <TextView
+                android:paddingLeft="@dimen/_4sdp"
+                android:id="@+id/tvDate_weather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16sdp"
+                android:textColor="#000"
+                android:text="DATE"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -73,12 +93,14 @@
                 android:textSize="@dimen/_16sdp"
                 android:textColor="#000"
                 android:gravity="center"
+                android:lines="2"
                 android:text="Sun Rise"/>
             <View
                 android:layout_width="2dp"
-                android:layout_height="@dimen/_22sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:background="@color/blu5"/>
             <TextView
+                android:lines="2"
                 android:layout_weight="1"
                 android:id="@+id/tvSunSet_weather"
                 android:layout_width="match_parent"
@@ -88,7 +110,23 @@
                 android:gravity="center"
                 android:text="Sun Set"/>
         </LinearLayout>
+        <TextView
+            android:id="@+id/tvHumidity_weather"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_16sdp"
+            android:textColor="#000"
+            android:gravity="center"
+            android:text="Humidity"/>
 
+        <TextView
+            android:padding="@dimen/_16sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/_14sdp"
+            android:textColor="#000"
+            android:gravity="center||bottom"
+            android:text="Chúc bạn có một ngày thật tuyệt vời!"/>
     </LinearLayout>
 
 </RelativeLayout>

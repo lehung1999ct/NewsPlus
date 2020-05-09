@@ -14,7 +14,11 @@ import myexam.th.lth.newsapp.model.currentWeather.Wind;
 
 public class ResponseWeather {
     private Coord mCoord;
+
+    @SerializedName( "weather" )
+    @Expose
     private List<Weather> mWeather;
+
     private String mBase;
 
     @SerializedName( "main" )
@@ -24,8 +28,15 @@ public class ResponseWeather {
     private int mVisibility;
     private Wind mWind;
     private Clouds mClouds;
+
+    @SerializedName( "dt" )
+    @Expose
     private int mDt;
+
+    @SerializedName( "sys" )
+    @Expose
     private Sys mSys;
+
     private int mTimezone;
     private int mId;
 

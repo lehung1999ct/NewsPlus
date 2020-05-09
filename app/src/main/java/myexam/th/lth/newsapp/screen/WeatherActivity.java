@@ -10,6 +10,9 @@ import io.reactivex.schedulers.Schedulers;
 import myexam.th.lth.newsapp.Constant;
 import myexam.th.lth.newsapp.R;
 import myexam.th.lth.newsapp.model.ResponseWeather;
+import myexam.th.lth.newsapp.model.currentWeather.Main;
+import myexam.th.lth.newsapp.model.currentWeather.Sys;
+import myexam.th.lth.newsapp.model.currentWeather.Weather;
 import myexam.th.lth.newsapp.network.NetworkAPI;
 import myexam.th.lth.newsapp.network.RetrofitWeather;
 import retrofit2.Retrofit;
@@ -23,6 +26,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -42,7 +46,7 @@ public class WeatherActivity extends AppCompatActivity {
 
     private static final String TAG = "WeatherActivity";
     private ImageView ivIcon_weather;
-    private TextView tvCity_weather,tvTemp_weather,tvSunRise_weather,tvSunSet_weather;
+    private TextView tvCity_weather,tvTemp_weather,tvSunRise_weather,tvSunSet_weather,tvHumidity_weather,tvDate_weather,tvDecs_weather;
 
     //api
     NetworkAPI api;
@@ -71,7 +75,9 @@ public class WeatherActivity extends AppCompatActivity {
         tvTemp_weather = findViewById( R.id.tvTemp_weather );
         tvSunRise_weather = findViewById( R.id.tvSunRise_weather );
         tvSunSet_weather = findViewById( R.id.tvSunSet_weather );
-
+        tvHumidity_weather = findViewById( R.id.tvHumidity_weather );
+        tvDate_weather = findViewById( R.id.tvDate_weather );
+        tvDecs_weather = findViewById( R.id.tvDecs_weather );
         getCurrentWeather();
 
 
@@ -102,8 +108,8 @@ public class WeatherActivity extends AppCompatActivity {
     private void buildLocationRequest(){
         locationRequest = new LocationRequest();
         locationRequest.setPriority( LocationRequest.PRIORITY_HIGH_ACCURACY );
-        locationRequest.setInterval( 5000 );
-        locationRequest.setFastestInterval( 3000 );
+        locationRequest.setInterval( 3000 );
+        locationRequest.setFastestInterval( 1000 );
         locationRequest.setSmallestDisplacement( 10.0f );
     }
     //LOCATION CALL BACK
@@ -146,7 +152,37 @@ public class WeatherActivity extends AppCompatActivity {
                                     tvCity_weather.setText( responseWeather.getmName() );
                                 }
 
-                                tvTemp_weather.setText( new StringBuilder( String.valueOf( responseWeather.getmMain().getTemp() ) ).append( "˚C" ).toString() );
+                                Main main = responseWeather.getmMain();
+                                Weather wea = responseWeather.getmWeather().get( 0 );
+                                Sys sys = responseWeather.getmSys();
+                                tvSunSet_weather.setText( new StringBuilder( "Hoàng hôn vào: " ).append( Constant.getSunset( sys.getSunset() ) ).toString() );
+                                tvSunRise_weather.setText( new StringBuilder( "Bình mình vào: " ).append( Constant.getSunrise( sys.getSunrise() ) ).toString() );
+
+                                tvDate_weather.setText( Constant.convertToDate( responseWeather.getmDt() ) );
+                                tvHumidity_weather.setText( new StringBuilder( "Độ ẩm không khí: " ).append( main.getHumidity() ).append( "%" ) );
+
+                                if (wea.getDescription().equals( "broken clouds" )){
+                                    tvDecs_weather.setText( "Trời mây nhiều, rải rác" );
+                                }else if (wea.getDescription().equals( "clear sky" )){
+                                    tvDecs_weather.setText( "Nắng nhẹ, thời tiếc đẹp" );
+                                }else if (wea.getDescription().equals( "shower rain" )){
+                                    tvDecs_weather.setText( "Mưa rào nhẹ" );
+                                }else if (wea.getDescription().equals( "few clouds" )){
+                                    tvDecs_weather.setText( "Mây thưa thớt" );
+                                }else if (wea.getDescription().equals( "rain" )){
+                                    tvDecs_weather.setText( "Có mưa" );
+                                }else if (wea.getDescription().equals( "thunderstorm" )){
+                                    tvDecs_weather.setText( "Trời giông bão" );
+                                }else if (wea.getDescription().equals( "snow" )){
+                                    tvDecs_weather.setText( "Có tuyết rơi" );
+                                } else if (wea.getDescription().equals( "mist" )){
+                                    tvDecs_weather.setText( "Sương mù dày đặc" );
+                                }else {
+                                    tvDecs_weather.setText( wea.getDescription() );
+                                }
+
+                                Glide.with( WeatherActivity.this ).load( "https://openweathermap.org/img/wn/"+wea.getIcon()+"@2x.png" ).placeholder( R.drawable.ic_sun ).into( ivIcon_weather );
+                                tvTemp_weather.setText( new StringBuilder( "Nhiệt độ: " ).append( main.getTemp() ).append( "˚C" ).toString() );
                             }
                         }, new Consumer<Throwable>() {
                             @Override

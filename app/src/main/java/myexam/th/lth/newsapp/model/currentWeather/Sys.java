@@ -1,10 +1,22 @@
 package myexam.th.lth.newsapp.model.currentWeather;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Sys {
+
+    @SerializedName( "type" )
+    @Expose
     private int type;
     private int id;
     private String country;
+
+    @SerializedName( "sunrise" )
+    @Expose
     private int sunrise;
+
+    @SerializedName( "sunset" )
+    @Expose
     private int sunset;
 
     public Sys() {
