@@ -2,6 +2,7 @@ package myexam.th.lth.newsapp.fragment;
 
 
 import android.Manifest;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -24,16 +25,20 @@ import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import myexam.th.lth.newsapp.MainActivity;
 import myexam.th.lth.newsapp.R;
-import myexam.th.lth.newsapp.adapter.PaginationAdapter;
-import myexam.th.lth.newsapp.utils.PaginationScroll;
+import myexam.th.lth.newsapp.adapter.HotNewsAdapter;
+import myexam.th.lth.newsapp.adapter.RecyclerItemClickListener;
+import myexam.th.lth.newsapp.screen.DetailHotNewActivity;
 import myexam.th.lth.newsapp.model.GetNews;
 import myexam.th.lth.newsapp.model.ResponseAllNews;
 import myexam.th.lth.newsapp.network.NetworkAPI;
@@ -47,7 +52,6 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import myexam.th.lth.newsapp.Constant;
 import myexam.th.lth.newsapp.model.ResponseWeather;
-import myexam.th.lth.newsapp.model.currentWeather.Main;
 import myexam.th.lth.newsapp.network.RetrofitWeather;
 import retrofit2.Retrofit;
 
@@ -65,35 +69,22 @@ public class FragmentHotNews extends Fragment {
     private ProgressBar mProgressBar;
 
     NetworkAPI api;
-    PaginationAdapter adapter;
+    HotNewsAdapter adapter;
     LinearLayoutManager manager;
+    ArrayList<GetNews> arrayList;
 
-    //Loading... Pagination
-    private static final int PAGE_START = 0;
-    private boolean isLoading = false;
-    private boolean isLastPage = false;
-
-    private int TOTAL_PAGE = 9;
-    private int CURRENT_PAGE = PAGE_START;
-
-    private int TOTAL_VIEW;
-
+//    Get Loction (GEO Coord)
     private FusedLocationProviderClient fuse;
     private LocationCallback locationCallback;
     private LocationRequest locationRequest;
     private CompositeDisposable compositeDisposable;
-    private Main mainTemp;
+
     private TextView tvLocation,tvWeather,tvDateOfWeek,tvToday;
 
-//    static FragmentHotNews instance;
-//
-//    public static FragmentHotNews getInstance(){
-//        if(instance==null){
-//            instance = new FragmentHotNews();
-//        }
-//        return instance;
-//    }
-
+//    Format Date
+    private Date date;
+    private SimpleDateFormat fmtOut = new SimpleDateFormat("dd-MM-yyyy");
+    private SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
     public FragmentHotNews() {
         // Required empty public constructor
     }
@@ -104,66 +95,37 @@ public class FragmentHotNews extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_hot_news, container, false);
+
         compositeDisposable = new CompositeDisposable(  );
         gerCurrentWeather();
+
         shimmer= view.findViewById( R.id.shimmerLoading );
+
         tvWeather = view.findViewById( R.id.tvWeather );
         tvLocation = view.findViewById( R.id.tvLocation );
         tvDateOfWeek = view.findViewById( R.id.tvDateOfWeek );
         tvToday = view.findViewById( R.id.tvToday );
 
+        api = ServiceAPI.getNewsService( NetworkAPI.class );
+
         rvMain = (RecyclerView)view.findViewById( R.id.rvMain );
 
-        adapter = new PaginationAdapter( getContext() );
         manager = new LinearLayoutManager( getContext(),RecyclerView.VERTICAL,false );
 
         rvMain.setItemAnimator( new DefaultItemAnimator() );
 
         rvMain.setLayoutManager( manager );
-        rvMain.setAdapter( adapter );
 
-        api = ServiceAPI.getNewsService( NetworkAPI.class );
-
-        rvMain.addOnScrollListener( new PaginationScroll(manager) {
-
-            @Override
-            public void loadMoreItem() {
-                isLoading=true;
-                CURRENT_PAGE += 1;
-                new Handler(  ).postDelayed( new Runnable() {
-                    @Override
-                    public void run() {
-                        loadNextPage();
-                    }
-                }, 2500 );
-            }
-
-            @Override
-            public int getTotalPageCount() {
-                return 0;
-            }
-
-            @Override
-            public boolean isLastPage() {
-                return false;
-            }
-
-            @Override
-            public boolean isLoading() {
-                return false;
-            }
-        } );
 
         waitHandler();
+
         return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-//        shimmer.startShimmer();
-        shimmer.stopShimmer();
-        adapter.notifyDataSetChanged();
+        shimmer.startShimmer();
     }
 
     @Override
@@ -174,7 +136,7 @@ public class FragmentHotNews extends Fragment {
 
     //Handler waiting load page.
     private void waitHandler(){
-        loadingFirstPage();
+        getNews();
         new Handler(  ).postDelayed( new Runnable() {
             @Override
             public void run() {
@@ -184,88 +146,60 @@ public class FragmentHotNews extends Fragment {
             }
         }, 3500 );
     }
-
-    private ArrayList<GetNews> fetchResultNews(Response<ResponseAllNews> response){
-        ResponseAllNews responseAllNews = response.body();
-        return responseAllNews.getArrCate();
-    }
-
-    //Get api server.
-    private void loadingFirstPage(){
-
+    private void getNews(){
         getActivity().runOnUiThread( new Runnable() {
             @Override
             public void run() {
-                getResponseNews().enqueue( new Callback<ResponseAllNews>() {
+                Call<ResponseAllNews> call = api.getAllNews( 0 );
+                call.enqueue( new Callback<ResponseAllNews>() {
                     @Override
                     public void onResponse(Call<ResponseAllNews> call, Response<ResponseAllNews> response) {
+                        if (response.body().getResult().equals( 1 )){
+                            arrayList = response.body().getArrCate();
+                            adapter = new HotNewsAdapter( arrayList, getContext() );
+                            rvMain.setAdapter( adapter );
 
-                        if (response.body().getResult()==1){
-                            ArrayList<GetNews> arrGetNews = fetchResultNews( response );
-                            isLoading = true;
-//                            mProgressBar.setVisibility( View.GONE );
-                            adapter.addAll(arrGetNews);
-                            if (CURRENT_PAGE<=TOTAL_PAGE){
-                                adapter.addLoadingFooter();
-                            }else {
-                                isLastPage=true;
-                            }
-                        }
-                    }
+                            rvMain.addOnItemTouchListener(new RecyclerItemClickListener( getContext(), new RecyclerItemClickListener.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(View view, int position) {
+                                    GetNews temp = arrayList.get( position );
+//                                    Toast.makeText( getContext(), "title: "+listNews.get( position ).getmTitle(), Toast.LENGTH_SHORT ).show();
 
-                    @Override
-                    public void onFailure(Call<ResponseAllNews> call, Throwable t) {
-                        Log.e( TAG, t.getMessage() );
-                        Toast.makeText( getContext(), "Errors: "+ t.getMessage(),Toast.LENGTH_SHORT ).show();
-                    }
-                } );
-            }
-        } );
+                                    try {
+                                        date = fmt.parse(temp.getmPostDate());
+                                    } catch (ParseException e) {
+                                        e.printStackTrace();
+                                    }
 
-    }
+                                    String setDate = new StringBuilder("Ngày ").append( fmtOut.format(date) ).toString();
+                                    Intent intent = new Intent( getContext(), DetailHotNewActivity.class );
+                                    intent.putExtra( "id_hot", temp.getmId() );
+                                    intent.putExtra( "title_hot", temp.getmTitle() );
+                                    intent.putExtra( "description_hot", temp.getmDescription() );
+                                    intent.putExtra( "thumb_hot", temp.getmThumb() );
+                                    intent.putExtra( "content_hot", temp.getmContent() );
+                                    intent.putExtra( "category_id_hot",temp.getmCateId() );
+                                    intent.putExtra( "post_date_hot", setDate );
+                                    intent.putExtra( "views_count_hot", String.valueOf( temp.getmViewCount()  ) );
+                                    intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
+                                    startActivity( intent );
+                                }
+                            } ) );
 
-    private void loadNextPage(){
-
-        getActivity().runOnUiThread( new Runnable() {
-            @Override
-            public void run() {
-                getResponseNews().enqueue( new Callback<ResponseAllNews>() {
-                    @Override
-                    public void onResponse(Call<ResponseAllNews> call, Response<ResponseAllNews> response) {
-                        if (response.body().getResult()==1){
-
-                            adapter.removeLoadingFooter();
-                            isLoading=false;
-
-                            ArrayList<GetNews> arrGetNews = fetchResultNews( response );
-
-                            adapter.addAll(arrGetNews);
-
-                            if (CURRENT_PAGE!=TOTAL_PAGE){
-                                adapter.addLoadingFooter();
-                            }else {
-                                isLastPage=true;
-                            }
                         }else {
-                            Toast.makeText( getContext(),"END",Toast.LENGTH_SHORT ).show();
+                            Toast.makeText( getContext(), "Hết.", Toast.LENGTH_SHORT ).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<ResponseAllNews> call, Throwable t) {
+                        Toast.makeText( getContext(), "error: "+t.getMessage(), Toast.LENGTH_SHORT ).show();
                         Log.e( TAG, t.getMessage() );
-                        Toast.makeText( getContext(), "Errors: "+ t.getMessage(),Toast.LENGTH_SHORT ).show();
                     }
                 } );
             }
         } );
-
     }
-
-    private Call<ResponseAllNews> getResponseNews(){
-        return api.getAllNews( CURRENT_PAGE );
-    }
-
 
     private void gerCurrentWeather(){
         Dexter.withActivity( getActivity() )
