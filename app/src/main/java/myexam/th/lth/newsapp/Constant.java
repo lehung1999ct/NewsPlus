@@ -20,6 +20,21 @@ public class Constant {
         return days;
     }
 
+    public static String getDateOfWeek(int dt){
+        Date date = new Date( dt*1000L );
+        SimpleDateFormat simple = new SimpleDateFormat( "EEEE" );
+        String format = simple.format( date );
+        return format;
+    }
+
+    public static String getDate(int dt){
+        Date date = new Date( dt*1000L );
+        SimpleDateFormat simple = new SimpleDateFormat( " dd/MM/yyyy " );
+        String format = simple.format( date );
+        String days = "Ngày"+format;
+        return days;
+    }
+
     public static String getSunrise(int dt){
         Date date = new Date( dt*1000L );
         SimpleDateFormat simple = new SimpleDateFormat( "HH:mm" );

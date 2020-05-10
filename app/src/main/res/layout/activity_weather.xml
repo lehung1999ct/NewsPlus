@@ -122,10 +122,10 @@
         <TextView
             android:padding="@dimen/_16sdp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:textSize="@dimen/_14sdp"
             android:textColor="#000"
-            android:gravity="center||bottom"
+            android:gravity="center"
             android:text="Chúc bạn có một ngày thật tuyệt vời!"/>
     </LinearLayout>
 

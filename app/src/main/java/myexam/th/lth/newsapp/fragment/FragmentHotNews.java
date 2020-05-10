@@ -83,7 +83,7 @@ public class FragmentHotNews extends Fragment {
     private LocationRequest locationRequest;
     private CompositeDisposable compositeDisposable;
     private Main mainTemp;
-    private TextView tvLocation,tvWeather;
+    private TextView tvLocation,tvWeather,tvDateOfWeek,tvToday;
 
 //    static FragmentHotNews instance;
 //
@@ -109,6 +109,8 @@ public class FragmentHotNews extends Fragment {
         shimmer= view.findViewById( R.id.shimmerLoading );
         tvWeather = view.findViewById( R.id.tvWeather );
         tvLocation = view.findViewById( R.id.tvLocation );
+        tvDateOfWeek = view.findViewById( R.id.tvDateOfWeek );
+        tvToday = view.findViewById( R.id.tvToday );
 
         rvMain = (RecyclerView)view.findViewById( R.id.rvMain );
 
@@ -325,6 +327,8 @@ public class FragmentHotNews extends Fragment {
                             public void accept(ResponseWeather responseWeather) throws Exception {
 //                                lam tron ˚C
                                 int tempi = (int) Math.round( responseWeather.getmMain().getTemp() );
+                                tvDateOfWeek.setText( Constant.getDateOfWeek( responseWeather.getmDt() ) );
+                                tvToday.setText( Constant.getDate( responseWeather.getmDt() ) );
                                 if(responseWeather.getmName().equals( "Can Tho" )){
                                     tvLocation.setText( "Cần Thơ" );
                                 }else if (responseWeather.getmName().equals( "Ho Chi Minh" )){

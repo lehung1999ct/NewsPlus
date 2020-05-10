@@ -40,6 +40,7 @@
                     android:paddingTop="@dimen/_10sdp"/>
 
                 <ImageView
+                    android:visibility="gone"
                     android:id="@+id/ivBookmark_delete"
                     android:layout_width="@dimen/_18sdp"
                     android:layout_height="@dimen/_18sdp"
@@ -59,8 +60,11 @@
                 <ImageView
                     android:layout_width="@dimen/_16sdp"
                     android:layout_height="@dimen/_16sdp"
-                    android:src="@drawable/bookmark"/>
+                    android:src="@drawable/ic_cate"
+                    android:padding="@dimen/_2sdp"/>
                 <TextView
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/_2sdp"
                     android:id="@+id/tvBookmark_cate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -73,9 +77,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:padding="@dimen/_2sdp"
-                >
+                android:padding="@dimen/_2sdp">
                 <ImageView
+                    android:visibility="gone"
+                    android:padding="@dimen/_2sdp"
                     android:layout_width="@dimen/_16sdp"
                     android:layout_height="@dimen/_16sdp"
                     android:src="@drawable/bookmark"/>

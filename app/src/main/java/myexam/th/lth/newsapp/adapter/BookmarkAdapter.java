@@ -53,32 +53,32 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.ViewHo
                 .placeholder( R.drawable.image_icon_load )
                 .into( holder.ivBookmark_image );
 
-        holder.ivBookmark_delete.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(context);
-                mBuilder.setTitle( "Xoa xem sau ");
-                mBuilder.setMessage( "may co chac chan khong ha thang ml nay: "+temp.getbId() );
-                mBuilder.setCancelable( false );
-                mBuilder.setPositiveButton( "XOA CMN LUON", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dao.DelBookmark( temp );
-//                        notifyDataSetChanged();
-                    }
-                } );
-                mBuilder.setNegativeButton( "HUY", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                        dialog.dismiss();
-                    }
-                } );
-                mBuilder.create().show();
-
-            }
-        } );
+//        holder.ivBookmark_delete.setOnClickListener( new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                AlertDialog.Builder mBuilder = new AlertDialog.Builder(context);
+//                mBuilder.setTitle( "Xoa xem sau ");
+//                mBuilder.setMessage( "may co chac chan khong ha thang ml nay: "+temp.getbId() );
+//                mBuilder.setCancelable( false );
+//                mBuilder.setPositiveButton( "XOA CMN LUON", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dao.DelBookmark( temp );
+//                        BookmarkAdapter.super.notifyDataSetChanged();
+//                    }
+//                } );
+//                mBuilder.setNegativeButton( "HUY", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.cancel();
+//                        dialog.dismiss();
+//                    }
+//                } );
+//                mBuilder.create().show();
+//
+//            }
+//        } );
 
     }
 

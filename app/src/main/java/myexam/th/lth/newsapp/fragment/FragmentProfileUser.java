@@ -37,6 +37,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import de.hdodenhof.circleimageview.CircleImageView;
 import myexam.th.lth.newsapp.R;
 import myexam.th.lth.newsapp.adapter.BookmarkAdapter;
 import myexam.th.lth.newsapp.adapter.SeenAdapter;
@@ -61,8 +62,9 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
     private ImageButton btnLogoutGG,btnBookMark_profile,btnWeather,btnInfoApp;
     private TextView tvName_profile;
     private LinearLayout itemLogout;
+    private CircleImageView ivThumbUser;
 
-    ImageView avtProfile;
+//    ImageView avtProfile;
 
     private GoogleSignInAccount mGoggle;
     private GoogleSignInClient mGoogleSignInClient;
@@ -84,7 +86,7 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
         // Inflate the layout for this fragment
         View view = inflater.inflate( R.layout.fragment_profile_user, container, false );
         tvName_profile = (TextView)view.findViewById( R.id.tvName_profile );
-        avtProfile = (ImageView)view.findViewById( R.id.ivThumbUser );
+        ivThumbUser = (CircleImageView) view.findViewById( R.id.ivThumbUser );
         itemLogout = (LinearLayout)view.findViewById( R.id.itemLogout );
 
         rvSeen_profile = (RecyclerView)view.findViewById( R.id.rvSeen_profile );
@@ -183,7 +185,7 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
                         tvName_profile.setText( "Đọc giả" );
                         btnLoginGG.setVisibility( View.VISIBLE );
                         itemLogout.setVisibility( View.GONE );
-                        avtProfile.setImageResource( R.drawable.ic_user );
+                        ivThumbUser.setImageResource( R.drawable.ic_user );
                         dialog.dismiss();
                     }
 
@@ -221,7 +223,7 @@ public class FragmentProfileUser extends Fragment implements View.OnClickListene
                         getInfo( mGoggle );
 //                        Toast.makeText( getContext(), "thumb: "+avt, Toast.LENGTH_SHORT ).show();
                         tvName_profile.setText( email );
-                        Glide.with( getContext() ).load( avt ).placeholder( R.drawable.ic_user ).into( avtProfile );
+                        Glide.with( getContext() ).load( avt ).placeholder( R.drawable.ic_user ).into( ivThumbUser );
                         dialog.dismiss();
                     }
                 }, 2000);

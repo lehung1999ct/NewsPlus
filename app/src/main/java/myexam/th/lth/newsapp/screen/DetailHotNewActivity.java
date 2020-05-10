@@ -52,8 +52,8 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
     NetworkAPI api;
 
     private Date date;
-    private SimpleDateFormat fmtOut = new SimpleDateFormat("dd-MM-yyyy");
-    private SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+    private SimpleDateFormat fmtOut = new SimpleDateFormat("dd/MM/yyyy");
+    private SimpleDateFormat fmt = new SimpleDateFormat("yyyy/MM/dd");
 
     String id_hot,title_hot,description_hot,thumb_hot,post_date_hot,views_count_hot,content_hot;
     int category_id_hot;
@@ -227,8 +227,7 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
         int val = 1;
         int i;
         for (i=0;i<arrBookmark.size();i++){
-            temp = arrBookmark.get( i );
-            if (temp.getbIdNews().equals( id_hot )){
+            if (id_hot.equals( arrBookmark.get( i ).getbIdNews() )){
                 val -= 1;
             }else {
                 val += 1 ;

@@ -17,7 +17,7 @@ public class SeenDBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "seen.db";
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     public static final String TAG = "NEWS_SEEN";
 
