@@ -14,10 +14,7 @@ import myexam.th.lth.newsapp.fragment.Entertain_Fragment;
 import myexam.th.lth.newsapp.fragment.Familia_Fragment;
 import myexam.th.lth.newsapp.fragment.Hearth_Fragment;
 import myexam.th.lth.newsapp.fragment.Housing_Fragment;
-import myexam.th.lth.newsapp.fragment.Tab_Four;
-import myexam.th.lth.newsapp.fragment.Tab_One;
-import myexam.th.lth.newsapp.fragment.Tab_Three;
-import myexam.th.lth.newsapp.fragment.Tab_Two;
+import myexam.th.lth.newsapp.fragment.Sport_Fragment;
 import myexam.th.lth.newsapp.fragment.Tech_Fragment;
 import myexam.th.lth.newsapp.fragment.World_Fragment;
 
@@ -33,25 +30,15 @@ public class FragmentAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return new Tab_One();
+                return new Sport_Fragment();
             case 1:
                 return new World_Fragment();
             case 2:
-                return new Housing_Fragment();
-            case 3:
-                return new Car_Fragment();
-            case 4:
                 return new Tech_Fragment();
-            case 5:
-                return new Familia_Fragment();
-            case 6:
-                return new Eco_Fragment();
-            case 7:
+            case 4:
                 return new Entertain_Fragment();
-            case 8:
+            case 3:
                 return new Bussines_Fragment();
-            case 9:
-                return new Hearth_Fragment();
         }
         return null;
     }
@@ -65,23 +52,13 @@ public class FragmentAdapter extends FragmentStatePagerAdapter {
             case 0:
                 return context.getString(R.string.thethao);
             case 1:
-                return context.getString(R.string.giadinh);
-            case 2:
                 return context.getString(R.string.thegioi);
-            case 3:
-                return context.getString(R.string.nhadat);
-            case 4:
-                return context.getString(R.string.xehoi);
-            case 5:
+            case 2:
                 return context.getString(R.string.congnghe);
-            case 6:
-                return context.getString(R.string.kinhte);
-            case 7:
+            case 3:
                 return context.getString(R.string.giaitri);
-            case 8:
+            case 4:
                 return context.getString(R.string.kinhdoanh);
-            case 9:
-                return context.getString(R.string.suckhoe);
 
         }
 
@@ -90,6 +67,6 @@ public class FragmentAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 10;
+        return 5;
     }
 }

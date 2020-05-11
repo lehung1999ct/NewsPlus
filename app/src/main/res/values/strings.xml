@@ -126,5 +126,12 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="about_us">Ứng dụng đọc tin tức News Plus
+Cám ơn bạn đã sử dụng ứng dụng của chúng tôi.
+Hiện tại ứng dụng vẫn còn trong gia đoạn phát triển nên vẫn có thể xảy ra 1 số lỗi đáng tiếc không mong muốn, mong bạn thông cảm và vui lòng góp ý về hòm thư: lehung@gmail.com
+Chúng tôi sẽ tiếp tục cập nhật sản phẩm để mang lại trải nghiệm tốt nhất cho các bạn
+Xin chân thành cám ơn sự hợp tác của các bạn.
+
+NewsPlus v1.1.0</string>
 
 </resources>

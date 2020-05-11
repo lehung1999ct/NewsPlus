@@ -3,12 +3,10 @@ package myexam.th.lth.newsapp.screen;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import myexam.th.lth.newsapp.R;
-import myexam.th.lth.newsapp.dao.BookmarkDBHelper;
 import myexam.th.lth.newsapp.dao.NewsDAO;
 import myexam.th.lth.newsapp.dao.NewsSeenDAO;
 import myexam.th.lth.newsapp.model.BookmarkNews;
 import myexam.th.lth.newsapp.model.NewsSeen;
-import myexam.th.lth.newsapp.model.ResponseServer;
 import myexam.th.lth.newsapp.model.ResponseView;
 import myexam.th.lth.newsapp.network.NetworkAPI;
 import myexam.th.lth.newsapp.network.ServiceAPI;
@@ -20,7 +18,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -29,10 +26,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.google.android.material.navigation.NavigationView;
 
-import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -157,7 +151,7 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
         }
 
         api = ServiceAPI.getNewsService( NetworkAPI.class );
-        Toast.makeText( this, id_hot, Toast.LENGTH_SHORT ).show();
+//        Toast.makeText( this, id_hot, Toast.LENGTH_SHORT ).show();
         setVC( id_hot, views_count_hot ).enqueue( new Callback<ResponseView>() {
             @Override
             public void onResponse(Call<ResponseView> call, Response<ResponseView> response) {

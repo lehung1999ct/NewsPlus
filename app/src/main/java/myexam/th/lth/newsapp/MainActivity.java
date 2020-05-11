@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         new AlertDialog.Builder(this)
                 .setIcon(R.drawable.com_facebook_button_icon)
                 .setTitle(R.string.app_name)
-                .setMessage("Thoát")
+                .setMessage("Bạn có muốn thoát không")
                 .setPositiveButton("Có", new DialogInterface.OnClickListener()
                 {
                     @Override

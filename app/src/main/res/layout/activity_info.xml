@@ -13,6 +13,25 @@
         android:layout_height="@dimen/_32sdp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:layout_collapseMode="pin"
-        android:background="@color/colorPrimary"/>
+        android:background="@color/colorPrimary"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tvAboutUs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="@dimen/_14sdp"
+        android:padding="@dimen/_8sdp"/>
+    <TextView
+        android:id="@+id/tvNw"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="#000"
+        android:text="NewsPlus v1.1.0 "
+        android:textStyle="bold|italic"
+        android:gravity="center|bottom"
+        android:textSize="@dimen/_14sdp"
+        android:padding="@dimen/_8sdp"/>
 
 </LinearLayout>

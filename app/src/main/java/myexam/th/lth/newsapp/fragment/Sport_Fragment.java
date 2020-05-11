@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
 import java.text.ParseException;
@@ -25,7 +24,6 @@ import myexam.th.lth.newsapp.adapter.RecyclerItemClickListener;
 import myexam.th.lth.newsapp.adapter.TrendAdapter;
 import myexam.th.lth.newsapp.model.GetNews;
 import myexam.th.lth.newsapp.model.ResponseAllNews;
-import myexam.th.lth.newsapp.model.ResponseServer;
 import myexam.th.lth.newsapp.network.NetworkAPI;
 import myexam.th.lth.newsapp.network.ServiceAPI;
 import myexam.th.lth.newsapp.screen.DetailHotNewActivity;
@@ -33,7 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Tab_One extends Fragment {
+public class Sport_Fragment extends Fragment {
 
     RecyclerView rvSport;
     NetworkAPI api;
@@ -56,7 +54,7 @@ public class Tab_One extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate( R.layout.tab_one,container,false);
+        View view = inflater.inflate( R.layout.sport_fragment,container,false);
         init();
 
         rvSport = (RecyclerView)view.findViewById( R.id.rvSport );
