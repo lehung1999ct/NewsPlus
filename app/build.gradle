@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
@@ -31,10 +31,11 @@ dependencies {
     implementation 'com.facebook.android:facebook-login:[5,6)'
     //Google Play services with Login
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
-
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
     //Connection retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
 
     // Lib pixel
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
@@ -52,4 +53,17 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     //Image Circle
     implementation 'de.hdodenhof:circleimageview:3.0.1'
+
+    //Dexter
+    implementation 'com.karumi:dexter:5.0.0'
+
+    //RxJava
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+    //Firebase
+    implementation 'com.google.firebase:firebase-analytics:17.3.0'
 }

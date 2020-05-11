@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#dfe6e9">
+    android:background="#fafafa">
 
     <FrameLayout
         android:id="@+id/frame_container"
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_36sdp"
         android:layout_gravity="bottom"
-        android:background="?android:attr/windowBackground"
+        android:background="@color/whi0"
         app:itemBackground="@color/whi0"
         app:menu="@menu/bottom_navigation"
         app:itemIconSize="@dimen/_16sdp"/>

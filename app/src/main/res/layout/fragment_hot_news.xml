@@ -14,21 +14,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="@dimen/_5sdp"
+        android:padding="@dimen/_2sdp"
         android:background="@color/whi0">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:paddingLeft="@dimen/_8sdp">
             <TextView
-                android:id="@+id/titleHotNews"
+                android:id="@+id/tvDateOfWeek"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
-                android:textSize="@dimen/_18sdp"
+                android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
                 android:text="Chu Nhat">
 
@@ -38,8 +38,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
-                android:textSize="@dimen/_14sdp"
-                android:text="01/01/2020">
+                android:textSize="@dimen/_12sdp"
+                android:text=" Ngay 01/01/2020">
             </TextView>
         </LinearLayout>
         <LinearLayout
@@ -63,20 +63,20 @@
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold"
                     android:text="Hồ Chí Minh"
-                    android:layout_marginTop="@dimen/_6sdp">
+                    >
                 </TextView>
                 <TextView
                     android:id="@+id/tvWeather"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000"
-                    android:textSize="@dimen/_14sdp"
-                    android:text="29*C">
+                    android:textSize="@dimen/_12sdp"
+                    android:text="29˚C">
                 </TextView>
             </LinearLayout>
             <ImageView
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
                 android:src="@drawable/ic_sun"
                 android:layout_gravity="center"/>
         </LinearLayout>
@@ -87,14 +87,16 @@
         android:layout_below="@+id/headBar"
         android:id="@+id/rvMain"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/shimmerLoading"
         android:layout_below="@+id/headBar"
-        app:shimmer_duration="1500">
+        app:shimmer_duration="1500"
+        android:visibility="visible">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -102,4 +104,10 @@
         </LinearLayout>
     </com.facebook.shimmer.ShimmerFrameLayout>
 
+    <ProgressBar
+        android:id="@+id/mProgressBar_hotnews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
 </RelativeLayout>
