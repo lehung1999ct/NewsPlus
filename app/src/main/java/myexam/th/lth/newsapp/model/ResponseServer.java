@@ -31,6 +31,16 @@ public class ResponseServer {
     @Expose
     private ArrayList<GetNews> arrNews;
 
+    public ResponseServer() {
+    }
+
+    public ResponseServer(Integer error, Integer result, String message, ArrayList<GetNews> arrNews) {
+        this.error = error;
+        this.result = result;
+        this.message = message;
+        this.arrNews = arrNews;
+    }
+
     public Integer getError() {
         return error;
     }

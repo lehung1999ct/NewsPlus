@@ -17,6 +17,17 @@
     <string name="frag_three">THREE</string>
     <string name="frag_four">FOUR</string>
 
+    <string name="thethao">Thể Thao</string>
+    <string name="giadinh">Gia Đình</string>
+    <string name="thegioi">Thế Giới</string>
+    <string name="kinhte">Kinh Tế</string>
+    <string name="giaitri">Giải Trí</string>
+    <string name="congnghe">Công Nghệ</string>
+    <string name="nhadat">Nhà Đất</string>
+    <string name="xehoi">Xe Hơi</string>
+    <string name="kinhdoanh">Kinh Doanh</string>
+    <string name="suckhoe">Sức Khỏe</string>
+
     <!-- TODO: Service Facebook -->
     <string name="facebook_app_id">2000488643605960</string>
     <string name="fb_login_protocol_scheme">fb2000488643605960</string>

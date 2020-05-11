@@ -18,7 +18,8 @@
         app:tabMode="fixed"
         app:tabIconTint="@color/colorPrimary"
         app:tabSelectedTextColor="@color/colorPrimaryDark"
-        android:outlineProvider="background">
+        android:outlineProvider="background"
+        android:visibility="gone">
 
     </com.google.android.material.tabs.TabLayout>
     <androidx.viewpager.widget.ViewPager

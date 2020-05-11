@@ -20,8 +20,8 @@ public interface NetworkAPI {
     Call<ResponseAllNews> getAllNews(@Query( "page" ) int index);
 
     @GET("getByCate/")
-    Call<ResponseServer> getByCategory(@Query("page") int index,
-                                       @Query("cate") String cate_id);
+    Call<ResponseAllNews> getByCategory(@Query("page") int index,
+                                       @Query("cate") int cate_id);
 
     @GET("getCate/")
     Call<ResponseServer> getCategory();
