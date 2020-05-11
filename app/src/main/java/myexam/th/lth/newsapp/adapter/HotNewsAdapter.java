@@ -96,8 +96,8 @@ public class HotNewsAdapter extends RecyclerView.Adapter<HotNewsAdapter.ViewHold
             case 11:
                 holder.tvCate_hotNews.setText( "Sức Khỏe" );
                 break;
-            case 12:
-                holder.tvCate_hotNews.setText( "KXD1" );
+            default:
+                holder.tvCate_hotNews.setText( "Vui lòng cập nhật phiên bản mới để biết phân loại" );
                 break;
         }
     }

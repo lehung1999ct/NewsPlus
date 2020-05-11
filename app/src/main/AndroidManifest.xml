@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".screen.DetailBookmarkActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".screen.InfoActivity" />
         <activity android:name=".screen.WeatherActivity" />
         <activity android:name=".screen.BookmarkActivity" />

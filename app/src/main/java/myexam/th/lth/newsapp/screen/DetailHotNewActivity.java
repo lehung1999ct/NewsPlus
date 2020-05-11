@@ -74,7 +74,7 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        seenTemp = new NewsSeen(  );
+//        seenTemp = new NewsSeen(  );
         init();
 
         tvTittle_detail = findViewById( R.id.tvTitle_detail );
@@ -140,9 +140,8 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
                 case 11:
                     tvCate_detail.setText("Sức Khỏe");
                     break;
-                case 12:
-                    tvCate_detail.setText("KXD1");
-                    break;
+                default:
+                    tvCate_detail.setText( "Vui lòng cập nhật phiên bản mới để biết phân loại" );
             }
 
             tvViewCount_detail.setText( views_count_hot );
@@ -157,10 +156,8 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
 
         }
 
-        NewsSeen();
-
         api = ServiceAPI.getNewsService( NetworkAPI.class );
-
+        Toast.makeText( this, id_hot, Toast.LENGTH_SHORT ).show();
         setVC( id_hot, views_count_hot ).enqueue( new Callback<ResponseView>() {
             @Override
             public void onResponse(Call<ResponseView> call, Response<ResponseView> response) {
@@ -172,6 +169,12 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
                 Toast.makeText( getBaseContext(), "Fail", Toast.LENGTH_SHORT ).show();
             }
         } );
+
+        if (checkEqualSeen()>0){
+            NewsSeen(id_hot,title_hot,description_hot,thumb_hot, String.valueOf( tvCate_detail.getText() ),post_date_hot);
+        }else {
+            Toast.makeText( getBaseContext(), "da ton tai", Toast.LENGTH_LONG ).show();
+        }
     }
 
     private void init() {
@@ -181,7 +184,6 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
 
         seenDAO = NewsSeenDAO.getInstance( getBaseContext() );
         arrSeen = seenDAO.getBookmarkAll();
-
     }
 
     public void saveBookmark(String id_hot, String title_hot, String description_hot,String thumb_hot,String category_id_hot,String post_date_hot,String content_hot){
@@ -230,32 +232,31 @@ public class DetailHotNewActivity extends AppCompatActivity implements View.OnCl
             if (id_hot.equals( arrBookmark.get( i ).getbIdNews() )){
                 val -= 1;
             }else {
-                val += 1 ;
+                val = 1 ;
             }
         }
         return val;
     }
 
-    private void NewsSeen(){
+    private void NewsSeen(String id_hot, String title_hot, String description_hot,String thumb_hot,String category_id_hot,String post_date_hot){
         NewsSeen temp = new NewsSeen(  );
         temp.setmIdNews( id_hot );
         temp.setmTitle( title_hot );
         temp.setmDesc( description_hot );
-        temp.setmCate( String.valueOf( tvCate_detail.getText()) );
+        temp.setmCate( category_id_hot );
         temp.setmDate( post_date_hot );
         temp.setmThumb( thumb_hot );
 
-        seenDAO.insertProduct( temp );
+        long a = seenDAO.insertProduct( temp );
     }
     private int checkEqualSeen(){
         int val = 1;
         int i;
         for (i=0;i<arrSeen.size();i++){
-            seenTemp = arrSeen.get( i );
-            if (seenTemp.getmIdNews().equals( id_hot )){
+            if (id_hot.equals( arrSeen.get( i ).getmIdNews() )){
                 val -= 1;
             }else {
-                val += 1 ;
+                val = 1 ;
             }
         }
         return val;

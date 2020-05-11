@@ -265,7 +265,7 @@ public class FragmentHotNews extends Fragment {
                                 tvToday.setText( Constant.getDate( responseWeather.getmDt() ) );
                                 if(responseWeather.getmName().equals( "Can Tho" )){
                                     tvLocation.setText( "Cần Thơ" );
-                                }else if (responseWeather.getmName().equals( "Ho Chi Minh" )){
+                                }else if (responseWeather.getmName().equals( "Ho Chi Minh City" )){
                                     tvLocation.setText( "Hồ Chí Minh" );
                                 }else if (responseWeather.getmName().equals( "Long Xuyen" )){
                                     tvLocation.setText( "Long Xuyên" );

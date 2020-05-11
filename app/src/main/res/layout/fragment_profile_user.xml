@@ -123,7 +123,7 @@
                     android:id="@+id/btnWeather"
                     android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp"
-                    android:background="@drawable/ic_sun"
+                    android:background="@drawable/weather"
                     android:padding="@dimen/_14sdp"/>
 
                 <TextView

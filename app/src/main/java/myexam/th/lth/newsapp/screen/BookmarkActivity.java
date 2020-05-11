@@ -13,6 +13,7 @@ import myexam.th.lth.newsapp.dao.NewsDAO;
 import myexam.th.lth.newsapp.model.BookmarkNews;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,6 +46,7 @@ public class BookmarkActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle( "Dánh Sách Xem Sau" );
 
+
         init();
         adapter = new BookmarkAdapter( this,arrayList );
 
@@ -57,7 +59,19 @@ public class BookmarkActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position) {
                 temp = arrayList.get( position );
-                Toast.makeText( BookmarkActivity.this, "title "+temp.getbTitle(), Toast.LENGTH_SHORT ).show();
+//                Toast.makeText( BookmarkActivity.this, "title "+temp.getbTitle(), Toast.LENGTH_SHORT ).show();
+                Intent intent = new Intent( BookmarkActivity.this, DetailBookmarkActivity.class );
+                intent.putExtra( "id", temp.getbId() );
+                intent.putExtra( "title", temp.getbTitle() );
+                intent.putExtra( "description", temp.getbDescription() );
+                intent.putExtra( "thumb", temp.getbImage() );
+                intent.putExtra( "content", temp.getbContent() );
+                intent.putExtra( "category_id",temp.getbCate() );
+                intent.putExtra( "post_date", temp.getbDate() );
+
+                intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
+                startActivity( intent );
+                finish();
             }
         } ) );
     }
@@ -70,8 +84,8 @@ public class BookmarkActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        adapter.notifyDataSetChanged();
         init();
+        adapter.notifyDataSetChanged();
     }
 
     @Override

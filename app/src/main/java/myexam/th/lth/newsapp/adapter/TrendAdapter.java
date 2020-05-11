@@ -65,29 +65,6 @@ public class TrendAdapter extends RecyclerView.Adapter<TrendAdapter.Holer> {
             tvViewer_trending = (TextView) itemView.findViewById(R.id.tvViewCount_trending);
 
             ivImage_hotNews = (ImageView) itemView.findViewById(R.id.ivImage_trending);
-
-//            itemView.setOnClickListener( new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    int i = getAdapterPosition();
-//                    if (i!=RecyclerView.NO_POSITION){
-//                        GetNews temp = list.get( i );
-//
-//                        Intent intent = new Intent( context, DetailHotNewActivity.class );
-//                        intent.putExtra( "id_hot", temp.getmId() );
-//                        intent.putExtra( "title_hot", temp.getmTitle() );
-//                        intent.putExtra( "description_hot", temp.getmDescription() );
-//                        intent.putExtra( "thumb_hot", temp.getmThumb() );
-//                        intent.putExtra( "content_hot", temp.getmContent() );
-//                        intent.putExtra( "category_id_hot", tvCate_hotNews.getText() );
-//                        intent.putExtra( "post_date_hot", tvDateTime_hotNews.getText() );
-//                        intent.putExtra( "views_count_hot", String.valueOf( temp.getmViewCount() + 1 ) );
-//                        intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
-//                        context.startActivity( intent );
-////                        Toast.makeText( context, temp.getmId(), Toast.LENGTH_SHORT ).show();
-//                    }
-//                }
-//            } );
         }
     }
 }
